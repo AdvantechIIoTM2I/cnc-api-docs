@@ -1,13 +1,13 @@
 # Table of contents
 
-* [Introduction](README.md)
-* [Changelog](changelog.md)
-* [APIs](api/README.md)
-  * [Basic Functions](api/basic-functions/README.md)
-    * [MStatus](api/basic-functions/mstatus.md)
-  * [Availability Functions](api/availability-functions.md)
-  * [Alarm Functions](api/alarm-functions.md)
-  * [Factory Functions](api/factory-functions.md)
-  * [Work Order Functions](api/work-order-functions.md)
-  * [Temperature Functions](api/temperature-functions.md)
+* [1. Introduction](README.md)
+* [2. Changelog](changelog.md)
+* [3. APIs](api/README.md)
+  * [3.1 Basic Functions](api/basic-functions/README.md)
+    * [3.1.1 MStatus](api/basic-functions/mstatus.md)
+  * [3.2 Availability Functions](api/availability-functions.md)
+  * [3.3 Alarm Functions](api/alarm-functions.md)
+  * [3.4 Factory Functions](api/factory-functions.md)
+  * [3.5 Work Order Functions](api/work-order-functions.md)
+  * [3.6 Temperature Functions](api/temperature-functions.md)
 
