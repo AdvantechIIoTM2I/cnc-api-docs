@@ -7,7 +7,7 @@
 
 ## Format
 
-### Request
+* ### Request
 
   ```
   fns.MStatus('<device ID>', '$to')
@@ -18,7 +18,7 @@
   | device ID | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
-### Response Tags
+* ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
@@ -41,7 +41,7 @@
   | MainPgm | String | Main Program | Program-001 |
   | Mode | String | Mode | ex: “MDI”, “MEM”, ... |
 
-### Example
+* ### Example
 
   - Query
     * Select All Tags:  

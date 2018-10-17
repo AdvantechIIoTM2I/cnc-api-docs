@@ -7,13 +7,13 @@
 
 ## Format
 
-### Request
+* ### Request
 
   ```
   APMGroup()
   ```
 
-### Response 
+* ### Response 
   * Format: Array of Group Name
   * Example:
   ``` 
@@ -23,7 +23,7 @@
   ]
   ```
 
-### Example
+* ### Example
 
   * Edit Variable in WISE-PaaS Setting     
   * Variable attributes:   

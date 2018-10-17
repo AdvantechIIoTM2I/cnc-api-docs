@@ -7,7 +7,7 @@
 
 ## Format
 
-### Request
+* ### Request
 
   ```
   APMGroupNode("path")
@@ -17,7 +17,7 @@
   | :---: | :---: | :---: | :---: |
   | path | String | WISE-PaaS APM's Group tree path | /Advantech/Taipei |
 
-### Response 
+* ### Response 
   * Format: Array of Child node name
   * Example:
   ``` 
@@ -27,7 +27,7 @@
   ]
   ```
 
-### Example
+* ### Example
 
   * Edit Variable in WISE-PaaS Setting     
   * Variable attributes:   

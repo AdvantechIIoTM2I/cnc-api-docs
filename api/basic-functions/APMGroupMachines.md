@@ -7,7 +7,7 @@
 
 ## Format
 
-### Request
+* ### Request
 
   ```
   APMGroupMachine("path")
@@ -17,7 +17,7 @@
   | :---: | :---: | :---: | :---: |
   | path | String | WISE-PaaS APM's Group tree path | /Advantech/Taipei |
 
-### Response 
+* ### Response 
   * Format: Array of machine name
   * Example:
   ``` 
@@ -27,7 +27,7 @@
   ]
   ```
 
-### Example
+* ### Example
 
   * Edit Variable in WISE-PaaS Setting     
   * Variable attributes:   
