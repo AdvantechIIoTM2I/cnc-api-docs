@@ -77,7 +77,7 @@
 
     2. Multiple device's Availability Analysis   
         - Query   
-            * Need 4 queries for this panel   
+            * Use 4 queries for this panel   
         ``` 
         select 'Run' as metric, RunTime from fns.MAvail("Advantech/Taipei","", "$from", "$to") 
         select 'Idle' as metric, IdleTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
