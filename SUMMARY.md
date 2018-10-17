@@ -10,6 +10,7 @@
     * [3.1.4 APMGroupNode](api/basic-functions/APMGroupNode.md)
     * [3.1.5 APMGroupMachines](api/basic-functions/APMGroupMachines.md)
   * [3.2 Availability Functions](api/availability-functions.md)
+    * [3.2.1 MAvail](api/avail_funcs/Mavail.md)
   * [3.3 Alarm Functions](api/alarm-functions.md)
   * [3.4 Factory Functions](api/factory-functions.md)
   * [3.5 Work Order Functions](api/work-order-functions.md)
