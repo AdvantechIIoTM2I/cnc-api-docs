@@ -1,26 +1,24 @@
-# 3.3.2 MAlarmCategory
+# 3.3.2 MAlarmOccurrence
 
 ## Information
 
-* Computes device’s availability information, include
-    * Availability
-    * Run/Down/Idle/Off time
-    * OFF count and  Run+Idle+Down total time
-* Need to specify the Query time range (from $from to $to)
-* Support one / multiple devices
+* Get device’s ranking top number information from alarm occurrence of each code.
+* Support single / multiple devices
+
 
 ## Format
 
 * ### Request
 
   ```
-  fns.MAvail('path', '<device ID>', '$from', '$to')
+  fns.MAlarmOccurrence("path", "device_id", "topN", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
-  | :---: | :---: | :---: | :---: |
+  | :--- | :--- | :--- | :--- |
   | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
-  | device ID | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | device_id | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | topN | String | Top "N" of occurrence rank | 5 |
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
@@ -32,104 +30,167 @@
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
-  | :---: | :---: | :---: | :---: |
-  | OffTime | float | Device's total Off time(sec.) within query time range | 100.11 |
-  | RunTime | float | Device's total Run time(sec.) within query time range | 60000.11 |
-  | IdleTime | float | Device's total Idle time(sec.) within query time range | 10000.11 |  
-  | DownTime | float | Device's total Down time(sec.) within query time range | 50.11 |
-  | Total | float | RunTime + IdleTime + DownTime (sec.) | 70050.33 |
-  | DownCount | int | Number of Down state within query time range | 2 |
-  | Availability | float | Device's Availability within query time range | 90.1 |
+  | :--- | :--- | :--- | :--- |
+  | No | Int | Rank number | 1 |
+  | Code | String | Alarm Code | "100" |
+  | Occurrence | Int | The alarm code occurrence count | 10000.11 |  
+  | AlarmMsg | String | The alarm message of alarm code list (English). | "100 PARAMETER WRITE ENABLE" |
+  | AlarmMsgTC | String | The alarm message of alarm code (Traditional Chinese). | "100 可寫入參數" |
   
 
 * ### Example  
-    1. Query Availability of one device   
+    1. List Top 10 Alarm code by Occurrence   
         - Query   
-        ``` select Availability from fns.MAvail('Advantech/Taipei','{MC-31}', '$from', '$to') ```
+        ``` select * from fns.MAlarmOccurrence("$Group/$Factory", "", "10", "$from", "$to") ```
         - Return Data Format   
             * table
         - Query Time Type   
             * utc
         - Panel Type   
-            * Singlestat
+            * Table
         - Panel Screenshot      
-            ![](/images/3.2.1-MAvail-Availability.jpg)
+            ![](images/3.3.2-MAlarmOccurrence-table.jpg)
         - Return Value Example    
             ```
             [
                 {
                     "columns": [
                         {
-                            "sqltype": "float", 
-                            "text": "Availability", 
+                            "sqltype": "int", 
+                            "text": "No", 
                             "type": "number"
+                        }, 
+                        {
+                            "sqltype": "str", 
+                            "text": "Code", 
+                            "type": "string"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Occurrence", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "str", 
+                            "text": "AlarmMsg", 
+                            "type": "string"
+                        }, 
+                        {
+                            "sqltype": "str", 
+                            "text": "AlarmMsgTC", 
+                            "type": "string"
                         }
                     ], 
                     "rows": [
                         [
-                            54.55
+                            1, 
+                            "383", 
+                            26, 
+                            "383 n AXIS : PULSE MISS (EXT)", 
+                            "383 n\u8ef8:\u76f8\u4f4d\u5931\u8aa4(EXT)"
+                        ], 
+                        [
+                            2, 
+                            "1081", 
+                            8, 
+                            "", 
+                            ""
+                        ], 
+                        [
+                            3, 
+                            "000", 
+                            3, 
+                            "000 PLEASE TURN OFF POWER !", 
+                            "000 \u8acb\u95dc\u96fb\u518d\u958b"
+                        ], 
+                        [
+                            4, 
+                            "385", 
+                            2, 
+                            "385 n AXIS : SERIAL DATA ERROR (EXT)", 
+                            "385 n\u8ef8:\u4e32\u5217\u8cc7\u6599\u8aa4\u5dee(EXT)"
+                        ], 
+                        [
+                            5, 
+                            "071", 
+                            1, 
+                            "071 DATA NOT FOUND", 
+                            "071 \u627e\u4e0d\u5230\u5c0b\u627e\u7684\u8cc7\u6599"
+                        ], 
+                        [
+                            6, 
+                            "300", 
+                            1, 
+                            "300 APC ALARM:nth-AXIS ORIGIN RETURN", 
+                            "300 \u7b2cn\u8ef8\u539f\u9ede\u5fa9\u6b78"
+                        ], 
+                        [
+                            7, 
+                            "1065", 
+                            1, 
+                            "NONE TF COMMAND!", 
+                            "NONE TF COMMAND!"
                         ]
                     ], 
                     "type": "table"
                 }
             ]
+
             ```
 
-    2. Multiple device's Availability Analysis   
+    2. List Top 10 of Alarm code by Occurrence in Group Bar Chart    
         - Query   
-            * Use 4 queries for this panel   
         ``` 
-        select 'Run' as metric, RunTime from fns.MAvail("Advantech/Taipei","", "$from", "$to") 
-        select 'Idle' as metric, IdleTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
-        select 'Down' as metric, DownTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
-        select 'Off' as metric, OffTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
+        select 'N' as metric, Occurrence, Code from fns.MAlarmOccurrence("$Group/$Factory", "", "10", "$from", "$to") 
         ```
         - Return Data Format   
             * timeseries
         - Query Time Type   
             * utc
         - Panel Type   
-            * Pie Chart
+            * Group Bar Chart
         - Panel Screenshot   
-            ![](/images/3.2.1-MAvail-Pie.jpg)
+            ![](/images/3.3.2-MAlarmOccurrence-bar.jpg)
         - Return Value Example    
             ```
             [
                 {
                     "datapoints": [
                         [
-                            219076.90199999997, 
-                            219076.90199999997
-                        ]
-                    ], 
-                    "target": "Run"
-                }, 
-                {
-                    "datapoints": [
+                            26, 
+                            "383"
+                        ], 
                         [
-                            106124.7910000001, 
-                            106124.7910000001
-                        ]
-                    ], 
-                    "target": "Idle"
-                }, 
-                {
-                    "datapoints": [
+                            8, 
+                            "1081"
+                        ], 
                         [
-                            10.018, 
-                            10.018
-                        ]
-                    ], 
-                    "target": "Down"
-                }, 
-                {
-                    "datapoints": [
+                            3, 
+                            "000"
+                        ], 
                         [
-                            252653.89900000003, 
-                            252653.89900000003
+                            2, 
+                            "091"
+                        ], 
+                        [
+                            2, 
+                            "385"
+                        ], 
+                        [
+                            1, 
+                            "071"
+                        ], 
+                        [
+                            1, 
+                            "300"
+                        ], 
+                        [
+                            1, 
+                            "1065"
                         ]
                     ], 
-                    "target": "Off"
+                    "target": "N"
                 }
-            ]       
+            ]
+
             ```

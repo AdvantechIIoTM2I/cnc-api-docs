@@ -2,134 +2,137 @@
 
 ## Information
 
-* Computes device’s availability information, include
-    * Availability
-    * Run/Down/Idle/Off time
-    * OFF count and  Run+Idle+Down total time
-* Need to specify the Query time range (from $from to $to)
+* Get device’s alarm categories of level information in each category
 * Support one / multiple devices
+
 
 ## Format
 
 * ### Request
 
   ```
-  fns.MAvail('path', '<device ID>', '$from', '$to')
+  fns.MAlarmCategory("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
-  | :---: | :---: | :---: | :---: |
+  | :--- | :--- | :--- | :---|
   | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
-  | device ID | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | device_id | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | level | String | String of alarm code level<br>"0" = Critical level<br>"1" = Warning level | "0" |
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
   - **Note:**
-    - 'path' can be empty string if you want to query all devices with the same name of "device ID"
+    - 'path' can be empty string if you want to query all devices with the same name of "device_id"
     - 'device ID' can be empty string if you want to query all devices under the specified 'path'
   
 
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
-  | :---: | :---: | :---: | :---: |
-  | OffTime | float | Device's total Off time(sec.) within query time range | 100.11 |
-  | RunTime | float | Device's total Run time(sec.) within query time range | 60000.11 |
-  | IdleTime | float | Device's total Idle time(sec.) within query time range | 10000.11 |  
-  | DownTime | float | Device's total Down time(sec.) within query time range | 50.11 |
-  | Total | float | RunTime + IdleTime + DownTime (sec.) | 70050.33 |
-  | DownCount | int | Number of Down state within query time range | 2 |
-  | Availability | float | Device's Availability within query time range | 90.1 |
+  | :--- | :--- | :--- | :--- |
+  | Level | string | Input alarm code level | "0" |
+  | Category* | int | Number of alarm in this category | 20 |
   
+  - Note:
+    - Category: Can be any string defined in the Alarm code definition of this machine.  
+      For example, if one device's alarm code definition contains 7 categories:
+        - Electric
+        - Controller
+        - Axes
+        - Spindle
+        - Magazine/ATC
+        - Oil/Air/Water
+        - Peripheral
+    - The Response Tags would be as follow:
+
+        | Tag Name | Data Type | Description | Example |
+        | :--- | :--- | :--- | :--- |
+        | Level | string | Input alarm code level | "0" |
+        | Electric | int | Number of alarm (Electric category) | 20 |
+        | Controller | int | Number of alarm (Controller category) | 20 |
+        | Axes | int | Number of alarm (Axes category) | 20 |
+        | Spindle | int | Number of alarm (Spindle category)| 20 |
+        | Magazine/ATC | int | Number of alarm (Magazine/ATC category) | 20 |
+        | Oil/Air/Water | int | Number of alarm (Oil/Air/Water category)| 20 |
+        | Peripheral | int | Number of alarm (Peripheral category) | 20 |
 
 * ### Example  
-    1. Query Availability of one device   
+    1. Query Alarm Categories of multiple device within a path
         - Query   
-        ``` select Availability from fns.MAvail('Advantech/Taipei','{MC-31}', '$from', '$to') ```
+        ``` 
+        select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
+        from fns.MAlarmCategory("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   
             * utc
         - Panel Type   
-            * Singlestat
+            * Radar Chart
         - Panel Screenshot      
-            ![](/images/3.2.1-MAvail-Availability.jpg)
+            ![](/images/3.3.1-MAlarmCategory-Radar.jpg)
+
         - Return Value Example    
             ```
             [
                 {
                     "columns": [
                         {
-                            "sqltype": "float", 
-                            "text": "Availability", 
+                            "sqltype": "str", 
+                            "text": "metric", 
+                            "type": "string"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Electric", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Controller", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Axes", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Spindle", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Magazine/ATC", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Oil/Air/Water", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Peripheral", 
                             "type": "number"
                         }
                     ], 
                     "rows": [
                         [
-                            54.55
+                            "0", 
+                            0, 
+                            17, 
+                            12, 
+                            1, 
+                            1, 
+                            1, 
+                            2
                         ]
                     ], 
                     "type": "table"
                 }
             ]
-            ```
 
-    2. Multiple device's Availability Analysis   
-        - Query   
-            * Use 4 queries for this panel   
-        ``` 
-        select 'Run' as metric, RunTime from fns.MAvail("Advantech/Taipei","", "$from", "$to") 
-        select 'Idle' as metric, IdleTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
-        select 'Down' as metric, DownTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
-        select 'Off' as metric, OffTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
-        ```
-        - Return Data Format   
-            * timeseries
-        - Query Time Type   
-            * utc
-        - Panel Type   
-            * Pie Chart
-        - Panel Screenshot   
-            ![](/images/3.2.1-MAvail-Pie.jpg)
-        - Return Value Example    
-            ```
-            [
-                {
-                    "datapoints": [
-                        [
-                            219076.90199999997, 
-                            219076.90199999997
-                        ]
-                    ], 
-                    "target": "Run"
-                }, 
-                {
-                    "datapoints": [
-                        [
-                            106124.7910000001, 
-                            106124.7910000001
-                        ]
-                    ], 
-                    "target": "Idle"
-                }, 
-                {
-                    "datapoints": [
-                        [
-                            10.018, 
-                            10.018
-                        ]
-                    ], 
-                    "target": "Down"
-                }, 
-                {
-                    "datapoints": [
-                        [
-                            252653.89900000003, 
-                            252653.89900000003
-                        ]
-                    ], 
-                    "target": "Off"
-                }
-            ]       
             ```
