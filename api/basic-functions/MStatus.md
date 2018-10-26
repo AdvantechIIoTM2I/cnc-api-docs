@@ -10,12 +10,12 @@
 * ### Request
 
   ```
-  fns.MStatus('<device ID>', '$to')
+  fns.MStatus("device_id", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
-  | device ID | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | device_id | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
 * ### Response Tags
@@ -45,9 +45,9 @@
 
   - Query
     * Select All Tags:  
-    ``` select * from fns.MStatus('{GR-25, MC-02}', '$to') ```
+    ``` select * from fns.MStatus('{GR-25, MC-02}', "$to") ```
     * Select some Tags:   
-    ``` select DevID, Status from fns.MStatus('{GR-25, MC-02}', '$to') ```
+    ``` select DevID, Status from fns.MStatus('{GR-25, MC-02}', "$to") ```
   - Return Data Format
     * table
   - Query Time Type

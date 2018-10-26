@@ -2,7 +2,7 @@
 
 ## Information
 
-* Get device’s alarm categories of level information in each category
+* List latest "N" Alarms within query time range
 * Support one / multiple devices
 
 
@@ -11,67 +11,46 @@
 * ### Request
 
   ```
-  fns.MAlarmCategory("path", "device_id",  "level", "$from", "$to")
+  fns.MEventList("path", "device_id",  "num_of_record", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
   | :--- | :--- | :--- | :---|
   | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
   | device_id | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
-  | level | String | String of alarm code level<br>"0" = Critical level<br>"1" = Warning level | "0" |
+  | num_of_record | String | Number of alarm records that you want to display | "10" |
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
   - **Note:**
     - 'path' can be empty string if you want to query all devices with the same name of "device_id"
-    - 'device ID' can be empty string if you want to query all devices under the specified 'path'
+    - 'device_id' can be empty string if you want to query all devices under the specified 'path'
   
 
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | Level | string | Input alarm code level | "0" |
-  | Category* | int | Number of alarm in this category | 20 |
+  | DevID | String | Device ID | MC-29 |
+  | AlarmCode | String | Alarm Code | "100" |
+  | AlarmMsg | String | The alarm message of alarm code list (English). | "100 PARAMETER WRITE ENABLE" |
+  | AlarmMsgTC | String | The alarm message of alarm code (Traditional Chinese). | "100 可寫入參數" |
+  | Ts | Datetime | Timestamp of the data | 1539679347445 |
   
-  - Note:
-    - Category: Can be any string defined in the Alarm code definition of this machine.  
-      For example, if one device's alarm code definition contains 7 categories:
-        - Electric
-        - Controller
-        - Axes
-        - Spindle
-        - Magazine/ATC
-        - Oil/Air/Water
-        - Peripheral
-    - The Response Tags would be as follow:
-
-        | Tag Name | Data Type | Description | Example |
-        | :--- | :--- | :--- | :--- |
-        | Level | string | Input alarm code level | "0" |
-        | Electric | int | Number of alarm (Electric category) | 20 |
-        | Controller | int | Number of alarm (Controller category) | 20 |
-        | Axes | int | Number of alarm (Axes category) | 20 |
-        | Spindle | int | Number of alarm (Spindle category)| 20 |
-        | Magazine/ATC | int | Number of alarm (Magazine/ATC category) | 20 |
-        | Oil/Air/Water | int | Number of alarm (Oil/Air/Water category)| 20 |
-        | Peripheral | int | Number of alarm (Peripheral category) | 20 |
-
 * ### Example  
-    1. Query Alarm Categories of multiple device within a path
+    1. Query latest 10 alarm records within query time range
         - Query   
         ``` 
-        select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
-        from fns.MAlarmCategory("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
+        select * from fns.MEventList("$Group/$Factory/$Category", "",  "10", "$from", "$to") 
         ```
         - Return Data Format   
             * table
         - Query Time Type   
             * utc
         - Panel Type   
-            * Radar Chart
+            * Table
         - Panel Screenshot      
-            ![](/images/3.3.1-MAlarmCategory-Radar.jpg)
+            ![](/images/3.3.6-MEventList-Table.jpg)
 
         - Return Value Example    
             ```
@@ -80,55 +59,100 @@
                     "columns": [
                         {
                             "sqltype": "str", 
-                            "text": "metric", 
+                            "text": "DevID", 
                             "type": "string"
                         }, 
                         {
-                            "sqltype": "int", 
-                            "text": "Electric", 
-                            "type": "number"
+                            "sqltype": "str", 
+                            "text": "AlarmCode", 
+                            "type": "string"
                         }, 
                         {
-                            "sqltype": "int", 
-                            "text": "Controller", 
-                            "type": "number"
+                            "sqltype": "str", 
+                            "text": "AlarmMsg", 
+                            "type": "string"
                         }, 
                         {
-                            "sqltype": "int", 
-                            "text": "Axes", 
-                            "type": "number"
+                            "sqltype": "str", 
+                            "text": "AlarmMsgTC", 
+                            "type": "string"
                         }, 
                         {
-                            "sqltype": "int", 
-                            "text": "Spindle", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Magazine/ATC", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Oil/Air/Water", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Peripheral", 
-                            "type": "number"
+                            "sqltype": "datetime", 
+                            "text": "Ts", 
+                            "type": "time"
                         }
                     ], 
                     "rows": [
                         [
-                            "0", 
-                            0, 
-                            17, 
-                            12, 
-                            1, 
-                            1, 
-                            1, 
-                            2
+                            "FM-04", 
+                            "1095", 
+                            "NO EXCHANGE TABLE", 
+                            "NO EXCHANGE TABLE", 
+                            1540516568525
+                        ], 
+                        [
+                            "FM-04", 
+                            "1058", 
+                            "ATC DOOR NOT CLOSE!", 
+                            "ATC DOOR NOT CLOSE!", 
+                            1540447202947
+                        ], 
+                        [
+                            "FM-04", 
+                            "1058", 
+                            "ATC DOOR NOT CLOSE!", 
+                            "ATC DOOR NOT CLOSE!", 
+                            1540447090714
+                        ], 
+                        [
+                            "FM-04", 
+                            "1016", 
+                            "SP TOOL (D440) SETTING ERROR!", 
+                            "SP TOOL (D440) SETTING ERROR!", 
+                            1540342936705
+                        ], 
+                        [
+                            "FM-04", 
+                            "1016", 
+                            "SP TOOL (D440) SETTING ERROR!", 
+                            "SP TOOL (D440) SETTING ERROR!", 
+                            1540342140337
+                        ], 
+                        [
+                            "FM-04", 
+                            "1020", 
+                            "OIL MATIC ! SPINDLE !", 
+                            "OIL MATIC ! SPINDLE !", 
+                            1540300318297
+                        ], 
+                        [
+                            "FM-04", 
+                            "1020", 
+                            "OIL MATIC ! SPINDLE !", 
+                            "OIL MATIC ! SPINDLE !", 
+                            1540299078024
+                        ], 
+                        [
+                            "FM-04", 
+                            "1094", 
+                            "CTS INVENTER ERROR!", 
+                            "CTS INVENTER ERROR!", 
+                            1540185398010
+                        ], 
+                        [
+                            "MC-35", 
+                            "1065", 
+                            "NONE TF COMMAND!", 
+                            "NONE TF COMMAND!", 
+                            1540168216175
+                        ], 
+                        [
+                            "FM-04", 
+                            "1094", 
+                            "CTS INVENTER ERROR!", 
+                            "CTS INVENTER ERROR!", 
+                            1540167942617
                         ]
                     ], 
                     "type": "table"

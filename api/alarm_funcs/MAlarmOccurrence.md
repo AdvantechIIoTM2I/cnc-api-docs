@@ -24,7 +24,7 @@
 
   - **Note:**
     - 'path' can be empty string if you want to query all devices with the same name of "device ID"
-    - 'device ID' can be empty string if you want to query all devices under the specified 'path'
+    - 'device_id' can be empty string if you want to query all devices under the specified 'path'
   
 
 * ### Response Tags
