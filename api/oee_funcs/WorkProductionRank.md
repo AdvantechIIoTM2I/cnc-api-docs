@@ -24,6 +24,7 @@
   | Variable | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
   | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
+  | topN | String | number of record to be returned | 5 |
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
@@ -35,10 +36,11 @@
 
     | Variable | Data Type | Description | Example |
     | :---: | :---: | :---: | :---: |
-    | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
-    | topN | String | number of record to be returned | 5 |
-    | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
-    | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
+    | No | int | Rank number | 1 |
+    | ProductName | string | Product Name | Ｙ軸馬達座（ＭＥ類）|
+    | PlanOutput | int | plant output number | 10 |
+    | Yields | float | yield percentage | 90 |
+    | WorkingHour | float | work time | 10.3 |
 
 
 * ### Example

@@ -29,11 +29,12 @@
 
   | Tag Name | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
-  | Quality | String | quality unit is percentage | 90 |
+  | Quality | float | Quality of the given Timestamp | 90.1 |
+  | Ts | Datetime | Timestamp of the data | 1539679347445 |
 
 
 * ### Example
-    1. Query Availability of path
+    1. Query Quality of path
         - Query
         ``` select Quality from fns.FactoryOEE("$Group/$Factory/$Category", "$from", "$to") ```
         - Return Data Format

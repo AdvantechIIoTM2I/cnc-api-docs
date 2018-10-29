@@ -29,13 +29,12 @@
 
     | Variable | Data Type | Description | Example |
     | :---: | :---: | :---: | :---: |
-    | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
-    | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
-    | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
+    | OEE | float | OEE of the given Timestamp | 90.1 |
+    | Ts | Datetime | Timestamp of the data | 1539679347445 |
 
 
 * ### Example
-    1. Query Availability of path
+    1. Query OEE of path
         - Query
         ``` select OEEDaily as metric, OEE, Ts from fns.OEETrendDaily("$Group/$Factory/$Category", "$from", "$to") ```
         - Return Data Format
