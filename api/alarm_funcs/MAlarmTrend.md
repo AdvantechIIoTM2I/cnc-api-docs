@@ -2,16 +2,15 @@
 
 ## Information
 
-* Get device’s alarm categories of level information in each category
-* Support one / multiple devices
-
+* Return Devices’ daily alarm count of each alarm level within query time range
+* Support one or multiple devices
 
 ## Format
 
 * ### Request
 
   ```
-  fns.MAlarmCategory("path", "device_id",  "level", "$from", "$to")
+  fns.MAlarmTrend("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -24,115 +23,115 @@
 
   - **Note:**
     - 'path' can be empty string if you want to query all devices with the same name of "device_id"
-    - 'device ID' can be empty string if you want to query all devices under the specified 'path'
+    - 'device_id' can be empty string if you want to query all devices under the specified 'path'
   
 
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | Level | string | Input alarm code level | "0" |
-  | Category* | int | Number of alarm in this category | 20 |
-  
-  - Note:
-    - Category: Can be any string defined in the Alarm code definition of this machine.  
-      For example, if one device's alarm code definition contains 7 categories:
-        - Electric
-        - Controller
-        - Axes
-        - Spindle
-        - Magazine/ATC
-        - Oil/Air/Water
-        - Peripheral
-    - The Response Tags would be as follow:
-
-        | Tag Name | Data Type | Description | Example |
-        | :--- | :--- | :--- | :--- |
-        | Level | string | Input alarm code level | "0" |
-        | Electric | int | Number of alarm (Electric category) | 20 |
-        | Controller | int | Number of alarm (Controller category) | 20 |
-        | Axes | int | Number of alarm (Axes category) | 20 |
-        | Spindle | int | Number of alarm (Spindle category)| 20 |
-        | Magazine/ATC | int | Number of alarm (Magazine/ATC category) | 20 |
-        | Oil/Air/Water | int | Number of alarm (Oil/Air/Water category)| 20 |
-        | Peripheral | int | Number of alarm (Peripheral category) | 20 |
+  | Level | string | alarm code level | "0" |
+  | Ts | Datetime | Timestamp of the data | 1539679347445 |
+  | AlarmLevelCount | int | Number of alarm  | 20 |
 
 * ### Example  
-    1. Query Alarm Categories of multiple device within a path
+    1. Query daily alarm count of 2 kinds of alarm levels
         - Query   
-        ``` 
-        select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
-        from fns.MAlarmCategory("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
-        ```
+            * Use 2 queries for this panel    
+            * Note:   
+                * Use "select 'xxxx' as metric" to specify the Display Legend Name of these data 
+        ```    
+        select 'Critical' as metric, AlarmLevelCount, Ts  from fns.MAlarmTrend("$Group/$Factory/$Category", "", "0", "$from", "$to")   
+        select 'Warning' as metric, AlarmLevelCount, Ts  from fns.MAlarmTrend("$Group/$Factory/$Category", "", "1", "$from", "$to")   
+        ```   
+
         - Return Data Format   
-            * table
+            * timeseries
         - Query Time Type   
             * utc
         - Panel Type   
-            * Radar Chart
+            * Graph
         - Panel Screenshot      
-            ![](/images/3.3.1-MAlarmCategory-Radar.jpg)
+            ![](/images/3.3.4-MAlarmTrend-graph.jpg)
 
         - Return Value Example    
             ```
             [
                 {
-                    "columns": [
-                        {
-                            "sqltype": "str", 
-                            "text": "metric", 
-                            "type": "string"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Electric", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Controller", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Axes", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Spindle", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Magazine/ATC", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Oil/Air/Water", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Peripheral", 
-                            "type": "number"
-                        }
-                    ], 
-                    "rows": [
+                    "datapoints": [
                         [
-                            "0", 
+                            3, 
+                            1539792000000
+                        ], 
+                        [
+                            5, 
+                            1539878400000
+                        ], 
+                        [
                             0, 
-                            17, 
-                            12, 
-                            1, 
-                            1, 
-                            1, 
-                            2
+                            1539964800000
+                        ], 
+                        [
+                            0, 
+                            1540051200000
+                        ], 
+                        [
+                            4, 
+                            1540137600000
+                        ], 
+                        [
+                            2, 
+                            1540224000000
+                        ], 
+                        [
+                            2, 
+                            1540310400000
+                        ], 
+                        [
+                            2, 
+                            1540396800000
                         ]
                     ], 
-                    "type": "table"
+                    "target": "Critical"
+                }, 
+                {
+                    "datapoints": [
+                        [
+                            0, 
+                            1539792000000
+                        ], 
+                        [
+                            0, 
+                            1539878400000
+                        ], 
+                        [
+                            0, 
+                            1539964800000
+                        ], 
+                        [
+                            0, 
+                            1540051200000
+                        ], 
+                        [
+                            0, 
+                            1540137600000
+                        ], 
+                        [
+                            0, 
+                            1540224000000
+                        ], 
+                        [
+                            0, 
+                            1540310400000
+                        ], 
+                        [
+                            0, 
+                            1540396800000
+                        ]
+                    ], 
+                    "target": "Warning"
                 }
             ]
+
 
             ```

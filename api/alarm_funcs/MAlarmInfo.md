@@ -2,16 +2,15 @@
 
 ## Information
 
-* Get device’s alarm categories of level information in each category
-* Support one / multiple devices
-
+* Return Devices’ Alarm code occurrence of level.
+* Support one or multiple devices
 
 ## Format
 
 * ### Request
 
   ```
-  fns.MAlarmCategory("path", "device_id",  "level", "$from", "$to")
+  fns.MAlarmInfo("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -24,45 +23,21 @@
 
   - **Note:**
     - 'path' can be empty string if you want to query all devices with the same name of "device_id"
-    - 'device ID' can be empty string if you want to query all devices under the specified 'path'
+    - 'device_id' can be empty string if you want to query all devices under the specified 'path'
   
 
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | Level | string | Input alarm code level | "0" |
-  | Category* | int | Number of alarm in this category | 20 |
-  
-  - Note:
-    - Category: Can be any string defined in the Alarm code definition of this machine.  
-      For example, if one device's alarm code definition contains 7 categories:
-        - Electric
-        - Controller
-        - Axes
-        - Spindle
-        - Magazine/ATC
-        - Oil/Air/Water
-        - Peripheral
-    - The Response Tags would be as follow:
-
-        | Tag Name | Data Type | Description | Example |
-        | :--- | :--- | :--- | :--- |
-        | Level | string | Input alarm code level | "0" |
-        | Electric | int | Number of alarm (Electric category) | 20 |
-        | Controller | int | Number of alarm (Controller category) | 20 |
-        | Axes | int | Number of alarm (Axes category) | 20 |
-        | Spindle | int | Number of alarm (Spindle category)| 20 |
-        | Magazine/ATC | int | Number of alarm (Magazine/ATC category) | 20 |
-        | Oil/Air/Water | int | Number of alarm (Oil/Air/Water category)| 20 |
-        | Peripheral | int | Number of alarm (Peripheral category) | 20 |
-
+  | Level | string | Alarm code level | "0" |
+  | Occurrence | int | The alarm code occurrence count in time range. | 20 |
+ 
 * ### Example  
-    1. Query Alarm Categories of multiple device within a path
+    1. Query Alarm occurrence of Alarm Level "0" within time range
         - Query   
         ``` 
-        select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
-        from fns.MAlarmCategory("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
+        select Occurrence from fns.MAlarmInfo("$Group/$Factory/$Category", "", "0",  "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -71,7 +46,7 @@
         - Panel Type   
             * Radar Chart
         - Panel Screenshot      
-            ![](/images/3.3.1-MAlarmCategory-Radar.jpg)
+            ![](/images/3.3.5-MAlarmInfo-SingleStat.jpg)
 
         - Return Value Example    
             ```
@@ -79,56 +54,14 @@
                 {
                     "columns": [
                         {
-                            "sqltype": "str", 
-                            "text": "metric", 
-                            "type": "string"
-                        }, 
-                        {
                             "sqltype": "int", 
-                            "text": "Electric", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Controller", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Axes", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Spindle", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Magazine/ATC", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Oil/Air/Water", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Peripheral", 
+                            "text": "Occurrence", 
                             "type": "number"
                         }
                     ], 
                     "rows": [
                         [
-                            "0", 
-                            0, 
-                            17, 
-                            12, 
-                            1, 
-                            1, 
-                            1, 
-                            2
+                            11
                         ]
                     ], 
                     "type": "table"

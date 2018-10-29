@@ -10,13 +10,13 @@
 * ### Request
 
   ```
-  fns.MInfo('path', '<device ID>', '$to')
+  fns.MInfo("path","device_id", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
   | path | String | WISE-PaaS APM's Group tree path<br>where the device belongs to | /Advantech/Taipei |
-  | device ID | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
+  | device_id | String | String of device ids \(one or multiple devices\) | {Dev-01} or {Dev-01,Dev-02} |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
 * ### Response Tags
@@ -50,9 +50,9 @@
 
   - Query
     * Select All Tags:  
-    ``` select * from fns.MInfo('Advantech/Taipei','{MC-31}', '$to') ```
+    ``` select * from fns.MInfo("Advantech/Taipei","{MC-31}", "$to") ```
     * Select some Tags:   
-    ``` select DevID, DevName, DevDesc from fns.MStatus('Advantech/Taipei','{MC-31}', '$to') ```
+    ``` select DevID, DevName, DevDesc from fns.MStatus("Advantech/Taipei","{MC-31}", "$to") ```
   - Return Data Format
     * table
   - Query Time Type
