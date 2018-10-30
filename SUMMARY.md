@@ -34,5 +34,11 @@
     * [3.4.9 WorkProductionRank](api/oee_funcs/WorkProductionRank.md)
   * [3.5 Factory Functions](api/factory_funcs/README.md)
   * [3.6 Work Order Functions](api/work_order_funcs/README.md)
+    * [3.6.1 MWorkOrder](api/work_order_funcs/MWorkOrder.md)
+    * [3.6.2 MWorkOrderAch](api/work_order_funcs/MWorkOrderAch.md)
+    * [3.6.3 MProcessTime](api/work_order_funcs/MProcessTime.md)
+    * [3.6.4 MPowerTime](api/work_order_funcs/MPowerTime.md)
+    * [3.6.5 MWorkOrderInfo](api/work_order_funcs/MWorkOrderInfo.md)
+    * [3.6.6 MWorkAbnormalityRank](api/work_order_funcs/MWorkAbnormalityRank.md)
   * [3.7 Temperature Functions](api/temp_funcs/README.md)
 
