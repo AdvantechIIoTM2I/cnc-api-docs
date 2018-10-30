@@ -2,19 +2,19 @@
 
 ## Information
 * Get factory's production information, includes:
-    * Number of Machines
-    * Number of Defect (Pcs)
-    * Yield Rate (%)
+    * Count of Work order
+    * Count of finished work order
+    * Achievement rate of work order
 * Dependent on WISE-PaaS APM (need to create Group first in APM).
 * After creating the Group tree in APM, input the parent node path that you want to query.
 * This API will return child nodes' infomation under the input parent node path.
-
+* Special return format for Builder Panel (use timeseries return format)
 ## Format
 
 * ### Request
 
   ```
-  fns.FactoryQualitySummary("path", "$from", "$to")
+  fns.FactoryProductionInfo("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -27,56 +27,62 @@
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | Factory | String | Node name of this record | "Taipei" |
-  | Defect | Int | Number of Defect (Pcs) | 10 |
-  | Yield | float | Yield Rate (%) | 99.9 |
+  | WOCountKey | String | String combination with "ChildNode Name"+ "-WOCount" | "Taipei-WOCount" |
+  | WOCount | Int | Count of Work order | 60 |
+  | FinishWOCountKey | String | String combination with "ChildNode Name"+ "-FinishWOCount" | "Taipei-FinishWOCount" |
+  | FinishWOCount | Int | Count of finished work order | 59 |
+  | AchvKey | String | String combination with "ChildNode Name"+ "-Achv" | "Taipei-Achv" |
+  | Achv | float | Achievement rate of work order(%) | 98.333 |
 
   
 * ### Example
     1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
-        - Query   
+        - Query
+            - Contains 3 queries for displaying WOCount, FinishWOCount and Achv on Builder Panel
         ``` 
-        select * from fns.FactoryQualitySummary("Advantech", "$from", "$to")
+        select WOCountKey as metric, WOCount from fns.FactoryProductionInfo("Advantech", "$from", "$to")
+        select FinishWOCountKey as metric, FinishWOCount from fns.FactoryProductionInfo("Advantech", "$from", "$to")
+        select AchvKey as metric, Achv from fns.FactoryProductionInfo("Advantech", "$from", "$to")
         ```
         - Return Data Format   
-            * table
+            * timeseries
         - Query Time Type   
             * utc
         - Panel Type   
-            * Datatable Panel
+            * Builder Panel
         - Panel Screenshot      
-            ![](/images/3.4.5-FactoryQualitySummary.jpg)
+            ![](/images/3.4.6-FactoryProductionInfo.jpg)
 
         - Return Value Example    
             ```
             [
                 {
-                    "columns": [
-                        {
-                            "sqltype": "str", 
-                            "text": "Factory", 
-                            "type": "string"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Defect", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "float", 
-                            "text": "Yield", 
-                            "type": "number"
-                        }
-                    ], 
-                    "rows": [
+                    "datapoints": [
                         [
-                            "Taipei", 
-                            0, 
-                            100.0
+                            11, 
+                            11
                         ]
                     ], 
-                    "type": "table"
+                    "target": "Taipei-WOCount"
+                }, 
+                {
+                    "datapoints": [
+                        [
+                            5, 
+                            5
+                        ]
+                    ], 
+                    "target": "Taipei-FinishWOCount"
+                }, 
+                {
+                    "datapoints": [
+                        [
+                            45.45454545454545, 
+                            45.45454545454545
+                        ]
+                    ], 
+                    "target": "Taipei-Achv"
                 }
-            ]
+            ]       
 
             ```
