@@ -20,7 +20,7 @@
 * ### Response 
   * Format: Array of Child node name
   * Example:
-  ``` 
+  ```  json
   [
   "NodeName1", 
   "NodeName2"

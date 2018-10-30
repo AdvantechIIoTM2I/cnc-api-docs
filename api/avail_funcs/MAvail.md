@@ -55,7 +55,7 @@
         - Panel Screenshot      
             ![](/images/3.2.1-MAvail-Availability.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -93,7 +93,7 @@
         - Panel Screenshot   
             ![](/images/3.2.1-MAvail-Pie.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

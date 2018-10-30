@@ -49,7 +49,7 @@
         - Panel Type   
             * Table
         - Panel Screenshot      
-            ![](images/3.3.2-MAlarmOccurrence-table.jpg)
+            ![](/images/3.3.2-MAlarmOccurrence-table.jpg)
         - Return Value Example    
             ```
             [

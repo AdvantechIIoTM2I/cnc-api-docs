@@ -60,7 +60,7 @@
         - Panel Screenshot      
             ![](/images/3.2.5-MAvailRank.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

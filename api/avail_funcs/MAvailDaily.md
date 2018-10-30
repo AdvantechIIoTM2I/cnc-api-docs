@@ -58,7 +58,7 @@
         - Panel Screenshot      
             ![](/images/3.2.4-MAvailDaily-Avail.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [
@@ -117,7 +117,7 @@
         - Panel Screenshot      
             ![](/images/3.2.4-MAvailDaily-Stack.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [
@@ -267,8 +267,7 @@
                     ], 
                     "target": "OFF"
                 }
-            ]
-   
+            ]  
             ```
 
  

@@ -16,7 +16,7 @@
 * ### Response 
   * Format: Array of Group Name
   * Example:
-  ``` 
+  ```  json
   [
   "GroupName1", 
   "GroupName2"

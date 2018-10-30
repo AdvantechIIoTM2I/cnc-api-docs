@@ -54,7 +54,7 @@
             ![](/images/3.4.6-FactoryProductionInfo.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

@@ -51,7 +51,7 @@
             ![](/images/3.4.3-FactoryOEESummary.jpg)  
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

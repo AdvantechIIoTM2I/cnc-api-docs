@@ -62,7 +62,7 @@
     ![](/images/3.1.2-MInfo-Table.jpg)
   - Return Value Example
     * All Tags
-    ```
+    ``` json
     [
         {
             "columns": [

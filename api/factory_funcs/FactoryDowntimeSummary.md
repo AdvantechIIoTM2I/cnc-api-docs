@@ -46,10 +46,10 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](images/3.4.4-FactoryDowntimeSummary.jpg)
+            ![](/images/3.4.4-FactoryDowntimeSummary.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

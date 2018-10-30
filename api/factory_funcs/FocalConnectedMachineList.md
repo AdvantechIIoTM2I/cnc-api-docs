@@ -45,10 +45,9 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](images/3.4.7-FocalConnectedMachineList.jpg)
-
+            ![](/images/3.4.7-FocalConnectedMachineList.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -118,6 +117,4 @@
                     "type": "table"
                 }
             ]
-
-
             ```

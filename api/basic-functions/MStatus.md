@@ -57,7 +57,7 @@
     ![](/images/3.1.1-MStatus-Table.png)
   - Return Value Example
     * All Tags
-    ```
+    ``` json
     [
       {
         "columns": [

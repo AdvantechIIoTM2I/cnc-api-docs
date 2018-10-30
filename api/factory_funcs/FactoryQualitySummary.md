@@ -35,7 +35,7 @@
 * ### Example
     1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` 
+        ``` json 
         select * from fns.FactoryQualitySummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   

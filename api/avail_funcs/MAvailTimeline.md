@@ -49,7 +49,7 @@
         - Panel Screenshot      
             ![](/images/3.2.2-MAvailTimeline.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

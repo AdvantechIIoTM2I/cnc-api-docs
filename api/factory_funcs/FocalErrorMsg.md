@@ -42,7 +42,7 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](images/3.4.8-FocalErrorMsg.jpg)
+            ![](/images/3.4.8-FocalErrorMsg.jpg)
 
         - Return Value Example    
             ```

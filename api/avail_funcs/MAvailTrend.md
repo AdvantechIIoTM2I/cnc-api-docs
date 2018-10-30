@@ -49,7 +49,7 @@
         - Panel Screenshot      
             ![](/images/3.2.3-MAvailTrend.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

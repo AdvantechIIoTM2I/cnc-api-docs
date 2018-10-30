@@ -37,7 +37,7 @@
 * ### Example
     1. Query overview of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` 
+        ``` json 
         select * from fns.GroupOverview("Advantech", "$from", "$to")
         ```
         - Return Data Format   
@@ -50,7 +50,7 @@
             ![](/images/3.4.1-GroupOverview.jpg)  
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

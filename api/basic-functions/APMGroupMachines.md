@@ -20,7 +20,7 @@
 * ### Response 
   * Format: Array of machine name
   * Example:
-  ``` 
+  ```  json
   [
   "MachineName1", 
   "MachineName2"
