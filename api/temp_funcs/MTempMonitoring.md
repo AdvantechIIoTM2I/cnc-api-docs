@@ -40,8 +40,9 @@
     1. Display the temperature trend of 4 different tags
         - Query   
           * Use 4 queries for this panel    
-            * Note:   
-                * Use "select 'xxxx' as metric" to specify the Display Legend Name of these data 
+          * Note:   
+            * Use "select 'xxxx' as metric" to specify the Display Legend Name of these data   
+
         ``` 
         select SpinTmp1 as metric, TempValue, Ts from fns.MTempMonitoring("$Group","$Machine", "SpinTmp1", "$from", "$to" )    
         select ServTemp0 as metric, TempValue, Ts from fns.MTempMonitoring("$Group","$Machine", "ServTemp0", "$from", "$to" )    

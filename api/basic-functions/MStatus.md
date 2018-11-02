@@ -28,13 +28,8 @@
   | Ts | Datetime | Timestamp of the data | 1539679347445 |
   | Status | int | Device Status \(0: OFF, 1: RUN, 2: IDLE, 3: DOWN\) | 1 |
   | AlmCode | dict | Object of Alarm code \(Key: array number Value: code\) | { "0" : "100","1" : "255","2" : "260",} |
-  | ServTemp | int | Servo Motor Temperature | 40.1 |
-  | ServTempX | int | Servo’s X-axis Temperature | 40.1 |
-  | ServTempY | int | Servo’s Y-axis Temperature | 40.1 |
-  | ServTempZ | int | Servo’s Z-axis Temperature | 40.1 |
-  | ServTempA | int | Servo’s A-axis Temperature | 40.1 |
-  | ServTempB | int | Servo’s B-axis Temperature | 40.1 |
-  | ServTempC | int | Servo’s C-axis Temperature | 40.1 |
+  | SpinTmp1 | int | Spindle Temperature | 40.1 |
+  | ServTemp | Dict | Dictionary of Servo Temperature | ``` json {"0": 24, "1": 46, "2": 24, "3": 0,  ... , "11": 0}``` |
   | OvFeed | int | Cutting Feed Override 進給百分比 \(%\) | 100 |
   | OvRapid | int | Rapid Feed Override 快動百分比 \(%\) | 100 |
   | OvSpin | int | Spindle Override 主軸轉速百分比 \(%\) | 100 |
@@ -93,23 +88,13 @@
           }, 
           {
             "sqltype": "int", 
+            "text": "SpinTmp1", 
+            "type": "number"
+          }, 
+          {
+            "sqltype": "dict", 
             "text": "ServTemp", 
-            "type": "number"
-          }, 
-          {
-            "sqltype": "int", 
-            "text": "ServTempX", 
-            "type": "number"
-          }, 
-          {
-            "sqltype": "int", 
-            "text": "ServTempY", 
-            "type": "number"
-          }, 
-          {
-            "sqltype": "int", 
-            "text": "ServTempZ", 
-            "type": "number"
+            "type": "string"
           }, 
           {
             "sqltype": "int", 
@@ -139,20 +124,25 @@
         ], 
         "rows": [
           [
-            "5bc5a83645cb64004dbe2121", 
+            "5bdbf6e4416322004bb667e9", 
             "9bf9c31c-0ee9-4e1d-a415-e18b42ccfb9d", 
-            "MC-31", 
-            1539680317767, 
-            0, 
+            "MC-41", 
+            1541142256026, 
+            1, 
             {}, 
-            29, 
-            40, 
-            53, 
-            32, 
-            100, 
             25, 
+            {
+              "0": 24, 
+              "1": 46, 
+              "2": 24, 
+              "3": 0, 
+              "4": 0, 
+              "5": 0
+            }, 
             100, 
-            "5249", 
+            50, 
+            100, 
+            "191", 
             "MEM"
           ]
         ], 

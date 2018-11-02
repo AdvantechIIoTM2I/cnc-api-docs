@@ -47,143 +47,109 @@
 * ### Example
 
   - Query
-    * Select All Tags:  
-    ``` select * from fns.MInfo("Advantech/Taipei","{MC-31}", "$to") ```
-    * Select some Tags:   
-    ``` select DevID, DevName, DevDesc from fns.MStatus("Advantech/Taipei","{MC-31}", "$to") ```
+    * Use 2 query to display Machine information on Machine Temp Panel  
+    ``` 
+    SELECT DevID, DevName, Status, MainPgm as Program, Mode 
+    FROM fns.MInfo( "$Group", "$Machine",  "$to")
+
+    SELECT SpinTmp1 as ServTemp, ServTemp0 as SpinTmp1, ServTemp1 as SpinTmp2, ServTemp2 as SpinTmp3, ServTemp3 as SpinTmp4,ServTemp4 as SpinTmp5 
+    FROM  fns.MInfo( "$Group", "$Machine",  "$to")
+    ```
   - Return Data Format
     * table
   - Query Time Type
     * utc
   - Panel Screenshot
     * All Tags with Table panel
-    ![](/images/3.1.2-MInfo-Table.jpg)
+    ![](/images/3.1.2-MInfo-Temperature.jpg)
   - Return Value Example
     * All Tags
     ``` json
     [
         {
             "columns": [
-            {
-                "sqltype": "str", 
-                "text": "DevID", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "DevName", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "DevDesc", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "ImgData", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "ObjectId", 
-                "text": "_id", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "s", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "d", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "datetime", 
-                "text": "ts", 
-                "type": "time"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "Status", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "dict", 
-                "text": "AlmCode", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "ServTemp", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "ServTempX", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "ServTempY", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "ServTempZ", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "OvFeed", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "OvRapid", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "int", 
-                "text": "OvSpin", 
-                "type": "number"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "MainPgm", 
-                "type": "string"
-            }, 
-            {
-                "sqltype": "str", 
-                "text": "Mode", 
-                "type": "string"
-            }
+                {
+                    "sqltype": "str", 
+                    "text": "DevID", 
+                    "type": "string"
+                }, 
+                {
+                    "sqltype": "str", 
+                    "text": "DevName", 
+                    "type": "string"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "Status", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "str", 
+                    "text": "Program", 
+                    "type": "string"
+                }, 
+                {
+                    "sqltype": "str", 
+                    "text": "Mode", 
+                    "type": "string"
+                }
             ], 
             "rows": [
-            [
-                "MC-31", 
-                "MC-31", 
-                "Type : H630B", 
-                "https://i.imgur.com/60Z4Pz9.jpg", 
-                "ObjectId('5bc6d1bf45cb64004dbe6e05')", 
-                "9bf9c31c-0ee9-4e1d-a415-e18b42ccfb9d", 
-                "MC-31", 
-                1539756486770, 
-                1, 
-                {}, 
-                24, 
-                36, 
-                51, 
-                32, 
-                100, 
-                25, 
-                100, 
-                "5249", 
-                "MEM"
-            ]
+                [
+                    "MC-41", 
+                    "MC-41", 
+                    1, 
+                    "191", 
+                    "MEM"
+                ]
+            ], 
+            "type": "table"
+        }, 
+        {
+            "columns": [
+                {
+                    "sqltype": "int", 
+                    "text": "ServTemp", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "SpinTmp1", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "SpinTmp2", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "SpinTmp3", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "SpinTmp4", 
+                    "type": "number"
+                }, 
+                {
+                    "sqltype": "int", 
+                    "text": "SpinTmp5", 
+                    "type": "number"
+                }
+            ], 
+            "rows": [
+                [
+                    25, 
+                    24, 
+                    46, 
+                    24, 
+                    0, 
+                    0
+                ]
             ], 
             "type": "table"
         }
     ]
+
     ```
