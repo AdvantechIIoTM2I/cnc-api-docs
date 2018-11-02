@@ -21,10 +21,6 @@
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
-  - **Note:**
-    - 'path' can be empty string if you want to query all devices with the same name of "device ID"
-
-
 * ### Response Tags
 
     | Variable | Data Type | Description | Example |

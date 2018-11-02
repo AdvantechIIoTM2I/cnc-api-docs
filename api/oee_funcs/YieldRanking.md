@@ -22,16 +22,13 @@
   | $from | ISODate String | Grafana Start time variable or ISO Date String | $from or "2018-10-01T00:00:00:000Z" |
   | $to | ISODate String | Grafana End time variable or ISO Date String | $to or "2018-10-10T00:00:00:000Z" |
 
-  - **Note:**
-    - 'path' can be empty string if you want to query all devices with the same name of "device ID"
-
 * ### Response Tags
 
   | Tag Name | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
   | No | int | Rank number | 1 |
   | Machine | String | Device ID | MC-29 |
-  | Percentage | int | Device's yield percentage | 100 |
+  | Yield | float | Device's yield percentage | 100 |
 
 
 * ### Example
@@ -52,16 +49,40 @@
             [
                 {
                     "columns": [
-                    {
-                        "sqltype": "str",
-                        "text": "Matric",
-                        "type": "string"
-                    },
-                    {
-                        "sqltype": "float",
-                        "text": "Percentage",
-                        "type": "number"
-                    }
+                        {
+                            "sqltype": "str",
+                            "text": "Matric",
+                            "type": "string"
+                        },
+                        {
+                            "sqltype": "float",
+                            "text": "Yield",
+                            "type": "number"
+                        }                    
+                    ], 
+                    "rows": [
+                        [
+                            "BO-03", 
+                            100.0
+                        ], 
+                        [
+                            "BO-07", 
+                            100.0
+                        ], 
+                        [
+                            "BO-08", 
+                            100.0
+                        ], 
+                        [
+                            "BO-06", 
+                            100.0
+                        ], 
+                        [
+                            "MC-31", 
+                            100.0
+                        ]
+                    ], 
+                    "type": "table"
                 }
             ]
             ```

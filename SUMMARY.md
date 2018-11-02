@@ -49,4 +49,5 @@
     * [3.6.5 MWorkOrderInfo](api/work_order_funcs/MWorkOrderInfo.md)
     * [3.6.6 MWorkAbnormalityRank](api/work_order_funcs/MWorkAbnormalityRank.md)
   * [3.7 Temperature Functions](api/temp_funcs/README.md)
+    * [3.7.1 MTempMonitoring](api/temp_funcs/MTempMonitoring.md)
 

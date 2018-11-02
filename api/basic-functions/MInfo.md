@@ -33,13 +33,11 @@
   | ts | Datetime | Timestamp of the data | 1539679347445 |
   | Status | int | Device Status \(0: OFF, 1: RUN, 2: IDLE, 3: DOWN\) | 1 |
   | AlmCode | dict | Object of Alarm code \(Key: array number Value: code\) | { "0" : "100","1" : "255","2" : "260",} |
-  | ServTemp | int | Servo Motor Temperature | 40.1 |
-  | ServTempX | int | Servo’s X-axis Temperature | 40.1 |
-  | ServTempY | int | Servo’s Y-axis Temperature | 40.1 |
-  | ServTempZ | int | Servo’s Z-axis Temperature | 40.1 |
-  | ServTempA | int | Servo’s A-axis Temperature | 40.1 |
-  | ServTempB | int | Servo’s B-axis Temperature | 40.1 |
-  | ServTempC | int | Servo’s C-axis Temperature | 40.1 |
+  | SpinTmp1 | int | Spindle Temperature | 40.1 |
+  | ServTemp0 | int | Servo’s 1st Temperature | 40.1 |
+  | ServTemp1 | int | Servo’s 2nd Temperature | 40.1 |
+  | ... | ... | ... | ... |
+  | ServTemp11 | int | Servo’s 11th Temperature | 40.1 |
   | OvFeed | int | Cutting Feed Override 進給百分比 \(%\) | 100 |
   | OvRapid | int | Rapid Feed Override 快動百分比 \(%\) | 100 |
   | OvSpin | int | Spindle Override 主軸轉速百分比 \(%\) | 100 |
