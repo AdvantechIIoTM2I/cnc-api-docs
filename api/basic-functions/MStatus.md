@@ -49,7 +49,7 @@
     * utc
   - Panel Screenshot
     * All Tags with Table panel
-    ![](/images/3.1.1-MStatus-Table.png)
+    ![](/images/3.1.1-MStatus-Table.jpg)
   - Return Value Example
     * All Tags
     ``` json

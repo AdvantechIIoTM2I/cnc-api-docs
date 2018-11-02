@@ -4,6 +4,7 @@
 
 * Get device infomation from WISE-PaaS APM AND device's RAW data from MongoDB
 * Support one / multiple devices
+* Dependent on WISE-PaaS APM (need to create Group first in APM).
 
 ## Format
 
@@ -47,7 +48,7 @@
 * ### Example
 
   - Query
-    * Use 2 query to display Machine information on Machine Temp Panel  
+    * Use 2 queries to display Machine information on Machine Temp Panel  
     ``` 
     SELECT DevID, DevName, Status, MainPgm as Program, Mode 
     FROM fns.MInfo( "$Group", "$Machine",  "$to")
@@ -60,10 +61,8 @@
   - Query Time Type
     * utc
   - Panel Screenshot
-    * All Tags with Table panel
     ![](/images/3.1.2-MInfo-Temperature.jpg)
   - Return Value Example
-    * All Tags
     ``` json
     [
         {
@@ -151,5 +150,4 @@
             "type": "table"
         }
     ]
-
     ```

@@ -28,7 +28,7 @@
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | Machine | String | Machine ID | MC-29 |
+  | DevID | String | Device ID | MC-29 |
   | StatusDuration | float | Latest Device status duration (sec.) | 300.21 |
   | Status | int | Device Status \(1: RUN, 2: IDLE, 3: DOWN\) | 1 |
   

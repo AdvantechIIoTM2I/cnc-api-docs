@@ -32,7 +32,7 @@
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
   | No | Int | Rank number | 1 |
-  | Code | String | Alarm Code | "100" |
+  | AlarmCode | String | Alarm Code | "100" |
   | Occurrence | Int | The alarm code occurrence count | 10000.11 |  
   | AlarmMsg | String | The alarm message of alarm code list (English). | "100 PARAMETER WRITE ENABLE" |
   | AlarmMsgTC | String | The alarm message of alarm code (Traditional Chinese). | "100 可寫入參數" |
