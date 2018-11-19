@@ -1,4 +1,4 @@
-# 3.3.5 MAlarmInfo
+# 3.3.5 MAlarmLevelCount
 
 ## Information
 
@@ -10,7 +10,7 @@
 * ### Request
 
   ```
-  fns.MAlarmInfo("path", "device_id",  "level", "$from", "$to")
+  fns.MAlarmLevelCount("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -37,7 +37,7 @@
     1. Query Alarm occurrence of Alarm Level "0" within time range
         - Query   
         ``` 
-        select Occurrence from fns.MAlarmInfo("$Group/$Factory/$Category", "", "0",  "$from", "$to")
+        select Occurrence from fns.MAlarmLevelCount("$Group/$Factory/$Category", "", "0",  "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -46,7 +46,7 @@
         - Panel Type   
             * Radar Chart
         - Panel Screenshot      
-            ![](/images/3.3.5-MAlarmInfo-SingleStat.jpg)
+            ![](/images/3.3.5-MAlarmLevelCount-SingleStat.jpg)
 
         - Return Value Example    
             ```

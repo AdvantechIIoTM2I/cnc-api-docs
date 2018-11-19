@@ -1,4 +1,4 @@
-# 3.4.8 FocalErrorMsg
+# 3.3.7 MAlarmLatestByDevice
 
 ## Information
 * Get factory's latest error message of each machine within the given time range
@@ -11,7 +11,7 @@
 * ### Request
 
   ```
-  fns.FocalErrorMsg("path", "$from", "$to")
+  fns.MAlarmLatestByDevice("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -33,7 +33,7 @@
     1. Query the alarm message of machines within {"Advantech" Group / "Taipei" Factory}
         - Query   
         ``` 
-        select * from fns.FocalErrorMsg('Advantech/Taipei', '$from', '$to')
+        select * from fns.MAlarmLatestByDevice('Advantech/Taipei', '$from', '$to')
         ```
         - Return Data Format   
             * table
@@ -42,7 +42,7 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](/images/3.4.8-FocalErrorMsg.jpg)
+            ![](/images/3.3.7-MAlarmLatestByDevice.jpg)
 
         - Return Value Example    
             ``` json

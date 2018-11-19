@@ -1,4 +1,4 @@
-# 3.3.6 MEventList
+# 3.3.6 MAlarmLatest
 
 ## Information
 
@@ -11,7 +11,7 @@
 * ### Request
 
   ```
-  fns.MEventList("path", "device_id",  "num_of_record", "$from", "$to")
+  fns.MAlarmLatest("path", "device_id",  "num_of_record", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -41,7 +41,7 @@
     1. Query latest 10 alarm records within query time range
         - Query   
         ``` 
-        select * from fns.MEventList("$Group/$Factory/$Category", "",  "10", "$from", "$to") 
+        select * from fns.MAlarmLatest("$Group/$Factory/$Category", "",  "10", "$from", "$to") 
         ```
         - Return Data Format   
             * table
@@ -50,7 +50,7 @@
         - Panel Type   
             * Table
         - Panel Screenshot      
-            ![](/images/3.3.6-MEventList-Table.jpg)
+            ![](/images/3.3.6-MAlarmLatest-Table.jpg)
 
         - Return Value Example    
             ```

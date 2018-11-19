@@ -1,4 +1,4 @@
-# 3.3.1 MAlarmCategory
+# 3.3.1 MAlarmCategoryCount
 
 ## Information
 
@@ -11,7 +11,7 @@
 * ### Request
 
   ```
-  fns.MAlarmCategory("path", "device_id",  "level", "$from", "$to")
+  fns.MAlarmCategoryCount("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -62,7 +62,7 @@
         - Query   
         ``` 
         select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
-        from fns.MAlarmCategory("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
+        from fns.MAlarmCategoryCount("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
         ```
         - Return Data Format   
             * table
@@ -71,7 +71,7 @@
         - Panel Type   
             * Radar Chart
         - Panel Screenshot      
-            ![](/images/3.3.1-MAlarmCategory-Radar.jpg)
+            ![](/images/3.3.1-MAlarmCategoryCount-Radar.jpg)
 
         - Return Value Example    
             ```

@@ -1,4 +1,4 @@
-# 3.3.4 MAlarmTrend
+# 3.3.4 MAlarmDaily
 
 ## Information
 
@@ -10,7 +10,7 @@
 * ### Request
 
   ```
-  fns.MAlarmTrend("path", "device_id",  "level", "$from", "$to")
+  fns.MAlarmDaily("path", "device_id",  "level", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -41,8 +41,8 @@
             * Note:   
                 * Use "select 'xxxx' as metric" to specify the Display Legend Name of these data 
         ```    
-        select 'Critical' as metric, AlarmLevelCount, Ts  from fns.MAlarmTrend("$Group/$Factory/$Category", "", "0", "$from", "$to")   
-        select 'Warning' as metric, AlarmLevelCount, Ts  from fns.MAlarmTrend("$Group/$Factory/$Category", "", "1", "$from", "$to")   
+        select 'Critical' as metric, AlarmLevelCount, Ts  from fns.MAlarmDaily("$Group/$Factory/$Category", "", "0", "$from", "$to")   
+        select 'Warning' as metric, AlarmLevelCount, Ts  from fns.MAlarmDaily("$Group/$Factory/$Category", "", "1", "$from", "$to")   
         ```   
 
         - Return Data Format   
@@ -52,7 +52,7 @@
         - Panel Type   
             * Graph
         - Panel Screenshot      
-            ![](/images/3.3.4-MAlarmTrend-graph.jpg)
+            ![](/images/3.3.4-MAlarmDaily-graph.jpg)
 
         - Return Value Example    
             ```
