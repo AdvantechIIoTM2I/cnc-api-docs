@@ -1,4 +1,4 @@
-# Availability Functions
+# Availability Analysis APIs
 
 
 

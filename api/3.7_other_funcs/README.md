@@ -1,4 +1,4 @@
-# Other Functions
+# Other APIs
 
 
 

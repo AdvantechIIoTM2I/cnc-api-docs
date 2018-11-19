@@ -1,4 +1,4 @@
-# 3.4.1 GroupOverview
+# 3.7.1 GroupCardInfo
 
 ## Information
 * Return the Group Overview with the following information:
@@ -15,7 +15,7 @@
 * ### Request
 
   ```
-  fns.GroupOverview("path", "$from", "$to")
+  fns.GroupCardInfo("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -38,7 +38,7 @@
     1. Query overview of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
         ``` json 
-        select * from fns.GroupOverview("Advantech", "$from", "$to")
+        select * from fns.GroupCardInfo("Advantech", "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -47,7 +47,7 @@
         - Panel Type   
             * Worldmap Card Panel
         - Panel Screenshot      
-            ![](/images/3.4.1-GroupOverview.jpg)  
+            ![](/images/3.7.1-GroupCardInfo.jpg)  
 
         - Return Value Example    
             ``` json

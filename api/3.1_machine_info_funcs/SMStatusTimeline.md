@@ -1,4 +1,4 @@
-# 3.2.2 SMStatusTimeline
+# 3.1.2 SMStatusTimeline
 
 ## Information
 

@@ -1,4 +1,4 @@
-# 3.4.7 FocalConnectedMachineList
+# 3.1.5 MCurrentStatusDuration
 
 ## Information
 * Get factory's connected machine, includes:
@@ -15,7 +15,7 @@
 * ### Request
 
   ```
-  fns.FocalConnectedMachineList("path", "$from", "$to")
+  fns.MCurrentStatusDuration("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -36,7 +36,7 @@
     1. Query connected machine of {"Advantech" Group / "Taipei" Factory}
         - Query   
         ``` 
-        select * from fns.FocalConnectedMachineList('Advantech/Taipei', '$from', '$to')
+        select * from fns.MCurrentStatusDuration('Advantech/Taipei', '$from', '$to')
         ```
         - Return Data Format   
             * table
@@ -45,7 +45,7 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](/images/3.4.7-FocalConnectedMachineList.jpg)
+            ![](/images/3.1.5-MCurrentStatusDuration.jpg)
         - Return Value Example    
             ``` json
             [

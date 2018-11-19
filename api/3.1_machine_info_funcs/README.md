@@ -1,2 +1,2 @@
-# Basic Functions
+# Real-time Machine Info APIs
 

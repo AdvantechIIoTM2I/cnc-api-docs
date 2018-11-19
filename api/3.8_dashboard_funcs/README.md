@@ -1,4 +1,4 @@
-# Dashboard Functions
+# Dashboard APIs
 
 
 
