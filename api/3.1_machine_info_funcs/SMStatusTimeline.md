@@ -1,4 +1,4 @@
-# 3.2.2 MAvailTimeline
+# 3.2.2 SMStatusTimeline
 
 ## Information
 
@@ -11,7 +11,7 @@
 * ### Request
 
     ```
-    fns.MAvailTimeline("path",'device_id', "$from", "$to")
+    fns.SMStatusTimeline("path",'device_id', "$from", "$to")
     ```
 
     | Variable | Data Type | Description | Example |
@@ -39,7 +39,7 @@
 * ### Example  
     1. Query Availability and status timeline of one device   
         - Query   
-        ``` select * from fns.MAvailTimeline("Group1/Child1","{GR-12}", "$from", "$to") ```
+        ``` select * from fns.SMStatusTimeline("Group1/Child1","{GR-12}", "$from", "$to") ```
         - Return Data Format   
             * table
         - Query Time Type   
@@ -47,7 +47,7 @@
         - Panel Type   
             * Timeline List
         - Panel Screenshot      
-            ![](/images/3.2.2-MAvailTimeline.jpg)
+            ![](/images/3.1.2-SMStatusTimeline.jpg)
         - Return Value Example    
             ``` json
             [

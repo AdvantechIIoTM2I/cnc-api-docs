@@ -1,4 +1,4 @@
-# 3.2.5 MAvailRank
+# 3.2.4 SMAvailRank
 
 ## Information
 
@@ -15,7 +15,7 @@
 * ### Request
 
     ```
-    fns.MAvailRank("path",'device_id', 'rank_type', 'topN', "$from", "$to")
+    fns.SMAvailRank("path",'device_id', 'rank_type', 'topN', "$from", "$to")
     ```
 
     | Variable | Data Type | Description | Example |
@@ -50,7 +50,7 @@
 * ### Example  
     1. Top 5 DownTime device ranking under $Group/$Factory path  
         - Query   
-        ``` select DevID as metric, DownTime from fns.MAvailRank("$Group/$Factory", "", "DownTime", "5", "$from", "$to") ```
+        ``` select DevID as metric, DownTime from fns.SMAvailRank("$Group/$Factory", "", "DownTime", "5", "$from", "$to") ```
         - Return Data Format   
             * table
         - Query Time Type   
@@ -58,7 +58,7 @@
         - Panel Type   
             * Ranking Bar
         - Panel Screenshot      
-            ![](/images/3.2.5-MAvailRank.jpg)
+            ![](/images/3.2.4-SMAvailRank.jpg)
         - Return Value Example    
             ``` json
             [

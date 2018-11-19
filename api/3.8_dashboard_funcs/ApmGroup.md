@@ -1,4 +1,4 @@
-# 3.1.3 APMGroup
+# 3.8.1 APMGroup
 
 ## Information
 
@@ -35,5 +35,5 @@
       APMGroup()
       ```
     * Screenshot   
-      ![](/images/3.1.3-APMGroup-setting.jpg)
+      ![](/images/3.8.1-APMGroup-setting.jpg)
   * Check if the the Group Name is displayed in "Preview of values"

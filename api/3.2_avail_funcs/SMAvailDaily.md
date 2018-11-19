@@ -1,4 +1,4 @@
-# 3.2.4 MAvailDaily
+# 3.2.3 SMAvailDaily
 
 ## Information
 
@@ -15,7 +15,7 @@
 * ### Request
 
     ```
-    fns.MAvailDaily("path",'device_id', "$from", "$to")
+    fns.SMAvailDaily("path",'device_id', "$from", "$to")
     ```
 
     | Variable | Data Type | Description | Example |
@@ -48,7 +48,7 @@
 * ### Example  
     1. Query Daily Availability of one device   
         - Query   
-        ``` select DevID as metric, Availability, Ts from fns.MAvailDaily("Group1", '{BO-07}',"$from","$to") ```
+        ``` select DevID as metric, Availability, Ts from fns.SMAvailDaily("Group1", '{BO-07}',"$from","$to") ```
         - Return Data Format   
             * timeseries
         - Query Time Type   
@@ -56,7 +56,7 @@
         - Panel Type   
             * Graph
         - Panel Screenshot      
-            ![](/images/3.2.4-MAvailDaily-Avail.jpg)
+            ![](/images/3.2.3-SMAvailDaily-Avail.jpg)
         - Return Value Example    
             ``` json
             [
@@ -115,7 +115,7 @@
         - Panel Type   
             * Grouped Bar Chart Panel
         - Panel Screenshot      
-            ![](/images/3.2.4-MAvailDaily-Stack.jpg)
+            ![](/images/3.2.3-SMAvailDaily-Stack.jpg)
         - Return Value Example    
             ``` json
             [

@@ -1,4 +1,4 @@
-# 3.1.2 MInfo
+# 3.1.1 MInfo
 
 ## Information
 
@@ -61,7 +61,7 @@
   - Query Time Type
     * utc
   - Panel Screenshot
-    ![](/images/3.1.2-MInfo-Temperature.jpg)
+    ![](/images/3.1.1-MInfo-Temperature.jpg)
   - Return Value Example
     ``` json
     [

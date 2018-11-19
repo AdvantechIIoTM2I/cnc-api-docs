@@ -1,16 +1,16 @@
-# 3.1.4 APMGroupNode
+# 3.8.3 APMGroupMachines
 
 ## Information
 
-* Get WISE-PaaS APM Group Node name
-* Return the child nodes of input PATH node
+* Get Machine Names which binded in WISE-PaaS APM Group
+* Return machine name belong to input path
 
 ## Format
 
 * ### Request
 
   ```
-  APMGroupNode("path")
+  APMGroupMachine("path")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -18,12 +18,12 @@
   | path | String | WISE-PaaS APM's Group tree path | /Advantech/Taipei |
 
 * ### Response 
-  * Format: Array of Child node name
+  * Format: Array of machine name
   * Example:
   ```  json
   [
-  "NodeName1", 
-  "NodeName2"
+  "MachineName1", 
+  "MachineName2"
   ]
   ```
 
@@ -36,8 +36,8 @@
     * Data Source: Simple SQL Data Source with api-m2icnc-generic URL   
     * Query:  
       ```
-      APMGroupNode("$Group")
+      APMGroupMachine("$Group")
       ```
     * Screenshot   
-      ![](/images/3.1.4-APMGroupNode-setting.jpg)
-  * Check if the the Child node name is displayed in "Preview of values"
+      ![](/images/3.8.3-APMGroupMachine-setting.jpg)
+  * Check if the the Machine name is displayed in "Preview of values"

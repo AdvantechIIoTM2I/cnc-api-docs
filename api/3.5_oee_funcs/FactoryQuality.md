@@ -26,7 +26,6 @@
   | Tag Name | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
   | Quality | float | Quality of the given Timestamp | 90.1 |
-  | Ts | Datetime | Timestamp of the data | 1539679347445 |
 
 
 * ### Example

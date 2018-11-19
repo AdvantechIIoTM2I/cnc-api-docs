@@ -1,4 +1,4 @@
-# 3.2.3 MAvailTrend
+# 3.2.2 SMAvailTrend
 
 ## Information
 
@@ -12,7 +12,7 @@
 * ### Request
 
     ```
-    fns.MAvailTrend("path",'device_id', "$from", "$to")
+    fns.SMAvailTrend("path",'device_id', "$from", "$to")
     ```
 
     | Variable | Data Type | Description | Example |
@@ -39,7 +39,7 @@
 * ### Example  
     1. Query Availability Trend of multiple device   
         - Query   
-        ``` select DevID as metric, Availability, Ts from fns.MAvailTrend("$Group/$Factory","{MC-41, FM-01,FM-02}", "$from", "$to") ```
+        ``` select DevID as metric, Availability, Ts from fns.SMAvailTrend("$Group/$Factory","{MC-41, FM-01,FM-02}", "$from", "$to") ```
         - Return Data Format   
             * timeseries
         - Query Time Type   
@@ -47,7 +47,7 @@
         - Panel Type   
             * Graph
         - Panel Screenshot      
-            ![](/images/3.2.3-MAvailTrend.jpg)
+            ![](/images/3.2.2-SMAvailTrend.jpg)
         - Return Value Example    
             ``` json
             [

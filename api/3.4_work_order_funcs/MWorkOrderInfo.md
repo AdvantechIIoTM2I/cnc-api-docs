@@ -15,7 +15,7 @@
 * ### Request
 
   ```sql
-  fns.MWorkOrder("path", "DevID", "$from", "$to")
+  fns.MWorkOrderInfo("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |

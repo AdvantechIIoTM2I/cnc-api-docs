@@ -13,7 +13,7 @@
 * ### Request
 
   ```sql
-  fns.ＭＷorkOrderAch("path", "DevID", "$from", "$to")
+  fns.MWorkOrderAch("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |

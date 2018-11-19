@@ -2,7 +2,7 @@
 
 ## Information
 
-* Get device’s Ｗork order abnormality rank.
+* Get device’s Work order abnormality rank.
 * Support one / multiple devices
 
 
@@ -11,7 +11,7 @@
 * ### Request
 
   ```sql
-  fns.MPowerTime("path", "DevID", "$from", "$to")
+  fns.MWorkAbnormalityRank("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -31,7 +31,8 @@
 
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
-  | metric | string | the abnormality name | 品質異常排除 |
+  | No | int | ranking number | 1 |
+  | Desc | string | the abnormality name | 品質異常排除 |
   | Occurrence | int | occurrence times | 3 |
 
 * ### Example
