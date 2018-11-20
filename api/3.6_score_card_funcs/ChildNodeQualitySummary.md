@@ -35,7 +35,7 @@
 * ### Example
     1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` json 
+        ``` sql 
         select * from fns.ChildNodeQualitySummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   
@@ -48,7 +48,7 @@
             ![](/images/3.6.4-ChildNodeQualitySummary.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

@@ -39,7 +39,7 @@
     1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query
             - Contains 3 queries for displaying WOCount, FinishWOCount and Achv on Builder Panel
-        ``` 
+        ``` sql
         select WOCountKey as metric, WOCount from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")
         select FinishWOCountKey as metric, FinishWOCount from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")
         select AchvKey as metric, Achv from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")

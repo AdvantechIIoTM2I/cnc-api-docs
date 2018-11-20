@@ -39,7 +39,9 @@
 * ### Example  
     1. Query Availability Trend of multiple device   
         - Query   
-        ``` select DevID as metric, Availability, Ts from fns.SMAvailTrend("$Group/$Factory","{MC-41, FM-01,FM-02}", "$from", "$to") ```
+        ``` sql
+        select DevID as metric, Availability, Ts from fns.SMAvailTrend("$Group/$Factory","{MC-41, FM-01,FM-02}", "$from", "$to") 
+        ```
         - Return Data Format   
             * timeseries
         - Query Time Type   

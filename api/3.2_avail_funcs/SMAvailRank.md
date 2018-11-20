@@ -50,7 +50,9 @@
 * ### Example  
     1. Top 5 DownTime device ranking under $Group/$Factory path  
         - Query   
-        ``` select DevID as metric, DownTime from fns.SMAvailRank("$Group/$Factory", "", "DownTime", "5", "$from", "$to") ```
+        ``` sql
+        select DevID as metric, DownTime from fns.SMAvailRank("$Group/$Factory", "", "DownTime", "5", "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   

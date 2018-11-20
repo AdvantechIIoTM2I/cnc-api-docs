@@ -35,7 +35,7 @@
 * ### Example
     1. Display the Servo temperature trend 
         - Query   
-        ``` 
+        ``` sql
         select TempName as metric, TempValue, Ts from fns.MSpindleTempTrend("$Group","$Machine",   "$from", "$to" )  
         ```
         - Return Data Format   

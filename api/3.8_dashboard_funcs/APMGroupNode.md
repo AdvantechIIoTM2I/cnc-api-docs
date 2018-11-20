@@ -35,7 +35,7 @@
     * Type: Query   
     * Data Source: Simple SQL Data Source with api-m2icnc-generic URL   
     * Query:  
-      ```
+      ``` sh
       APMGroupNode("$Group")
       ```
     * Screenshot   

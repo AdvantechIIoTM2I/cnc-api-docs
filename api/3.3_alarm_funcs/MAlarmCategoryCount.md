@@ -60,7 +60,7 @@
 * ### Example  
     1. Query Alarm Categories of multiple device within a path
         - Query   
-        ``` 
+        ``` sql
         select Level as metric, Electric, Controller, Axes, Spindle, 'Magazine/ATC', 'Oil/Air/Water', 'Peripheral'  
         from fns.MAlarmCategoryCount("$Group/$Factory/$Line/$Category", "",  "0", "$from", "$to") 
         ```
@@ -74,7 +74,7 @@
             ![](/images/3.3.1-MAlarmCategoryCount-Radar.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

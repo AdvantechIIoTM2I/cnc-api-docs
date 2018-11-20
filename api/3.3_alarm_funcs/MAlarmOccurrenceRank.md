@@ -41,7 +41,9 @@
 * ### Example  
     1. List Top 10 Alarm code by Occurrence   
         - Query   
-        ``` select * from fns.MAlarmOccurrenceRank("$Group/$Factory", "", "10", "$from", "$to") ```
+        ``` sql
+        select * from fns.MAlarmOccurrenceRank("$Group/$Factory", "", "10", "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   
@@ -51,7 +53,7 @@
         - Panel Screenshot      
             ![](/images/3.3.2-MAlarmOccurrenceRank-table.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -140,7 +142,7 @@
 
     2. List Top 10 of Alarm code by Occurrence in Group Bar Chart    
         - Query   
-        ``` 
+        ``` sql
         select 'N' as metric, Occurrence, Code from fns.MAlarmOccurrenceRank("$Group/$Factory", "", "10", "$from", "$to") 
         ```
         - Return Data Format   
@@ -152,7 +154,7 @@
         - Panel Screenshot   
             ![](/images/3.3.2-MAlarmOccurrenceRank-bar.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

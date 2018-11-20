@@ -48,7 +48,9 @@
 * ### Example  
     1. Query Daily Availability of one device   
         - Query   
-        ``` select DevID as metric, Availability, Ts from fns.SMAvailDaily("Group1", '{BO-07}',"$from","$to") ```
+        ``` sql 
+        select DevID as metric, Availability, Ts from fns.SMAvailDaily("Group1", '{BO-07}',"$from","$to") 
+        ```
         - Return Data Format   
             * timeseries
         - Query Time Type   

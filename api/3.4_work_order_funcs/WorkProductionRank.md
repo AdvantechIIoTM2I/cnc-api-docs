@@ -42,7 +42,9 @@
 * ### Example
     1. Query Top 5 PlanOutput ranking under $Group/$Factory path
         - Query
-        ``` select * from fns.WorkProductionRank("$Group/$Factory", "5",  "$from", "$to") ```
+        ``` sql
+        select * from fns.WorkProductionRank("$Group/$Factory", "5",  "$from", "$to") 
+        ```
         - Return Data Format
             * timeseries
         - Query Time Type

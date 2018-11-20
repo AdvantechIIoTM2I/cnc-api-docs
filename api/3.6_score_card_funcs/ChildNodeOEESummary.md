@@ -38,7 +38,7 @@
 * ### Example
     1. Query OEE Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` 
+        ``` sql
         select * from fns.ChildNodeOEESummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   

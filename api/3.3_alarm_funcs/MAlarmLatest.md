@@ -40,7 +40,7 @@
 * ### Example  
     1. Query latest 10 alarm records within query time range
         - Query   
-        ``` 
+        ``` sql
         select * from fns.MAlarmLatest("$Group/$Factory/$Category", "",  "10", "$from", "$to") 
         ```
         - Return Data Format   
@@ -53,7 +53,7 @@
             ![](/images/3.3.6-MAlarmLatest-Table.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

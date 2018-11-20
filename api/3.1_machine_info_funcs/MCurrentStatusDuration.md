@@ -35,7 +35,7 @@
 * ### Example
     1. Query connected machine of {"Advantech" Group / "Taipei" Factory}
         - Query   
-        ``` 
+        ``` sql
         select * from fns.MCurrentStatusDuration('Advantech/Taipei', '$from', '$to')
         ```
         - Return Data Format   

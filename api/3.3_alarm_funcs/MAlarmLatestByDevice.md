@@ -32,7 +32,7 @@
 * ### Example
     1. Query the alarm message of machines within {"Advantech" Group / "Taipei" Factory}
         - Query   
-        ``` 
+        ``` sql
         select * from fns.MAlarmLatestByDevice('Advantech/Taipei', '$from', '$to')
         ```
         - Return Data Format   

@@ -39,7 +39,9 @@
 * ### Example  
     1. Query Availability and status timeline of one device   
         - Query   
-        ``` select * from fns.SMStatusTimeline("Group1/Child1","{GR-12}", "$from", "$to") ```
+        ``` sql 
+        select * from fns.SMStatusTimeline("Group1/Child1","{GR-12}", "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   

@@ -40,9 +40,13 @@
 
   - Query
     * Select All Tags:  
-    ``` select * from fns.MStatus('{GR-25, MC-02}', "$to") ```
+    ``` sql 
+    select * from fns.MStatus('{GR-25, MC-02}', "$to") 
+    ```
     * Select some Tags:   
-    ``` select DevID, Status from fns.MStatus('{GR-25, MC-02}', "$to") ```
+    ``` sql 
+    select DevID, Status from fns.MStatus('{GR-25, MC-02}', "$to") 
+    ```
   - Return Data Format
     * table
   - Query Time Type

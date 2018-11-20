@@ -40,7 +40,7 @@
             * Use 2 queries for this panel    
             * Note:   
                 * Use "select 'xxxx' as metric" to specify the Display Legend Name of these data 
-        ```    
+        ``` sql   
         select 'Critical' as metric, AlarmLevelCount, Ts  from fns.MAlarmDaily("$Group/$Factory/$Category", "", "0", "$from", "$to")   
         select 'Warning' as metric, AlarmLevelCount, Ts  from fns.MAlarmDaily("$Group/$Factory/$Category", "", "1", "$from", "$to")   
         ```   
@@ -55,7 +55,7 @@
             ![](/images/3.3.4-MAlarmDaily-graph.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

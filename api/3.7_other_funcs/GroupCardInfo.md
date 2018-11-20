@@ -37,7 +37,7 @@
 * ### Example
     1. Query overview of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` json 
+        ``` sql 
         select * from fns.GroupCardInfo("Advantech", "$from", "$to")
         ```
         - Return Data Format   

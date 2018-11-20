@@ -39,7 +39,7 @@
 * ### Example  
     1. Query latest records within query time range
         - Query   
-        ``` 
+        ``` sql
         select * from fns.MEventList("$Group/$Factory/$Category", "",  "10", "$from", "$to") 
         ```
         - Return Data Format   
@@ -52,7 +52,7 @@
             ![](/images/3.1.6-MAlarmCurrent.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -94,6 +94,4 @@
                     "type": "table"
                 }
             ]
-
-
             ```

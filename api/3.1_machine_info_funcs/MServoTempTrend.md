@@ -35,8 +35,8 @@
 * ### Example
     1. Display the Servo temperature trend 
         - Query   
-        ``` 
-        select TempName as metric, TempValue, Ts from fns.MServoTempTrend("$Group","$Machine",   "$from", "$to" )  
+        ``` sql
+        select TempName as metric, TempValue, Ts from fns.MServoTempTrend("$Group","$Machine", "$from", "$to" )  
         ```
         - Return Data Format   
             * timeseries

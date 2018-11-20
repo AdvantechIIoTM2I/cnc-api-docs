@@ -42,7 +42,9 @@
 * ### Example  
     1. List Top 10 Alarm code by Duration   
         - Query   
-        ``` select * from fns.MAlarmDurationRank("$Group/$Factory", "", "10", "$from", "$to") ```
+        ``` sql 
+        select * from fns.MAlarmDurationRank("$Group/$Factory", "", "10", "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   
@@ -52,7 +54,7 @@
         - Panel Screenshot      
             ![](/images/3.3.3-MAlarmDurationRank-table.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -148,7 +150,7 @@
 
     2. List Top 10 of Alarm code by Duration in Group Bar Chart    
         - Query   
-        ``` 
+        ``` sql
         select 'N' as metric, Duration, Code from fns.MAlarmDurationRank("$Group/$Factory", "", "10", "$from", "$to") 
         ```
         - Return Data Format   
@@ -160,7 +162,7 @@
         - Panel Screenshot   
             ![](/images/3.3.3-MAlarmDurationRank-bar.jpg)
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "datapoints": [

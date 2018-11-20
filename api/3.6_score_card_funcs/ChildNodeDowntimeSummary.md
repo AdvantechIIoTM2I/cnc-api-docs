@@ -36,7 +36,7 @@
 * ### Example
     1. Query Downtime Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` 
+        ``` sql
         select * from fns.ChildNodeDowntimeSummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   

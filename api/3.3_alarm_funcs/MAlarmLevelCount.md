@@ -36,7 +36,7 @@
 * ### Example  
     1. Query Alarm occurrence of Alarm Level "0" within time range
         - Query   
-        ``` 
+        ``` sql
         select Occurrence from fns.MAlarmLevelCount("$Group/$Factory/$Category", "", "0",  "$from", "$to")
         ```
         - Return Data Format   
@@ -49,7 +49,7 @@
             ![](/images/3.3.5-MAlarmLevelCount-SingleStat.jpg)
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [

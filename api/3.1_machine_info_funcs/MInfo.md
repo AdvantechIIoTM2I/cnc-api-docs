@@ -49,7 +49,7 @@
 
   - Query
     * Use 2 queries to display Machine information on Machine Temp Panel  
-    ``` 
+    ``` sql
     SELECT DevID, DevName, Status, MainPgm as Program, Mode 
     FROM fns.MInfo( "$Group", "$Machine",  "$to")
 
