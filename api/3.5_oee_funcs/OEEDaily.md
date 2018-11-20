@@ -1,8 +1,8 @@
-# 3.5.6 QualityTrendDaily
+# 3.5.5 OEEDaily
 
 ## Information
 
-* Computes factory quality trend daily information within query time range
+* Computes factory oee trend daily information within query time range
 * Need to specify the Query time range (from $from to $to)
 * Support only path
 
@@ -12,7 +12,7 @@
 * ### Request
 
   ``` sh
-  fns.QualityTrendDaily('path', '$from', '$to')
+  fns.OEEDaily('path', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -25,14 +25,16 @@
 
     | Variable | Data Type | Description | Example |
     | :---: | :---: | :---: | :---: |
-    | Quality | float | Quality of the given Timestamp | 90.1 |
+    | OEE | float | OEE of the given Timestamp | 90.1 |
     | Ts | Datetime | Timestamp of the data | 1539679347445 |
 
 
 * ### Example
-    1. Query Quality of path
+    1. Query OEE of path
         - Query
-        ``` select QualityDaily as metric, Quality, Ts from fns.QualityTrendDaily("$Group/$Factory/$Category", "$from", "$to") ```
+        ```  sql
+        select OEEDaily as metric, OEE, Ts from fns.OEEDaily("$Group/$Factory/$Category", "$from", "$to") 
+        ```
         - Return Data Format
             * timeseries
         - Query Time Type
@@ -41,7 +43,7 @@
             * Graph
         - Panel Screenshot
 
-            ![](/images/3.5.6-QualityTrendDaily.png)
+            ![](/images/3.5.5-OEEDaily.png)
         - Return Value Example
 
             ``` json
@@ -49,39 +51,39 @@
                 {
                     "datapoints": [
                     [
-                        100.0,
+                        97.76457844928272,
                         1540137600000
                     ],
                     [
-                        0,
+                        0.0,
                         1540224000000
                     ],
                     [
-                        100.0,
+                        88.06010874329225,
                         1540310400000
                     ],
                     [
-                        100.0,
+                        76.3237768220493,
                         1540396800000
                     ],
                     [
-                        100.0,
+                        2881.414461959448,
                         1540483200000
                     ],
                     [
-                        0,
+                        0.0,
                         1540569600000
                     ],
                     [
-                        0,
+                        0.0,
                         1540656000000
                     ],
                     [
-                        0,
+                        0.0,
                         1540779858240
                     ]
                     ],
-                    "target": "QualityDaily"
+                    "target": "OEEDaily"
                 }
             ]
             ```

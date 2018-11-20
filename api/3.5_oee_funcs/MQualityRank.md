@@ -1,4 +1,4 @@
-# 3.5.1 YieldRanking
+# 3.5.1 MQualityRank
 
 ## Information
 
@@ -12,7 +12,7 @@
 * ### Request
 
   ``` sh
-  fns.YieldRanking('path', '<topN>', '$from', '$to')
+  fns.MQualityRank('path', '<topN>', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -34,7 +34,9 @@
 * ### Example
     1. Query Availability of path
         - Query
-        ``` select Machine as Matric, Percentage from fns.YieldRanking('$Group' ,'5', '$from','$to') order by Percentage asc ```
+        ``` SQL 
+        select Machine as Matric, Percentage from fns.YieldRanking('$Group' ,'5', '$from','$to') order by Percentage asc 
+        ```
         - Return Data Format
             * table
         - Query Time Type
@@ -43,7 +45,7 @@
             * Singlestat
         - Panel Screenshot
 
-            ![](/images/3.5.1-YieldRanking.png)
+            ![](/images/3.5.1-MQualityRank.png)
         - Return Value Example
             ``` json
             [

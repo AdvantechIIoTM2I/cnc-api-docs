@@ -1,11 +1,10 @@
-# 3.4.3 FactoryOEESummary
+# 3.6.3 ChildNodeDowntimeSummary
 
 ## Information
-* Get factory's OEE Summary, includes:
-    * OEE (%)
-    * Availability (%)
-    * Performance (%)
-    * Quality (%)
+* Get factory's Downtime Summary, includes:
+    * Number of Machines
+    * Down state occurrence count
+    * DownTime duration (second)
 * Dependent on WISE-PaaS APM (need to create Group first in APM).
 * After creating the Group tree in APM, input the parent node path that you want to query.
 * This API will return child nodes' infomation under the input parent node path.
@@ -15,7 +14,7 @@
 * ### Request
 
   ```
-  fns.FactoryOEESummary("path", "$from", "$to")
+  fns.ChildNodeDowntimeSummary("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -29,17 +28,16 @@
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
   | Factory | String | Node name of this record | "Taipei" |
-  | OEE | float | oee value (%) | 90 |
-  | Availability | float | availability value (%) | 90 |
-  | Performance | float | performance value (%) | 90 |
-  | Quality | float | quality value (%) | 90 |
+  | Machines | Int | Number of Machines under the "Factory" | 10 |
+  | Occurrence | Int | Down state occurrence count | 10 |
+  | Duration | float | DownTime duration (second) | 200.9 |
 
   
 * ### Example
-    1. Query OEE Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
+    1. Query Downtime Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
         ``` 
-        select * from fns.FactoryOEESummary("Advantech", "$from", "$to")
+        select * from fns.ChildNodeDowntimeSummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -48,7 +46,7 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](/images/3.4.3-FactoryOEESummary.jpg)  
+            ![](/images/3.6.3-ChildNodeDowntimeSummary.jpg)
 
         - Return Value Example    
             ``` json
@@ -61,33 +59,27 @@
                             "type": "string"
                         }, 
                         {
-                            "sqltype": "float", 
-                            "text": "OEE", 
+                            "sqltype": "int", 
+                            "text": "Machines", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "Occurrence", 
                             "type": "number"
                         }, 
                         {
                             "sqltype": "float", 
-                            "text": "Availability", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "float", 
-                            "text": "Performance", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "float", 
-                            "text": "Quality", 
+                            "text": "Duration", 
                             "type": "number"
                         }
                     ], 
                     "rows": [
                         [
                             "Taipei", 
-                            74.58, 
-                            81.8, 
-                            91.17601856213125, 
-                            100.0
+                            3, 
+                            28, 
+                            2891123.3210000005
                         ]
                     ], 
                     "type": "table"

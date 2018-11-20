@@ -1,10 +1,10 @@
-# 3.4.5 FactoryQualitySummary
+# 3.6.1 ChildNodeWorkOrderAchvRate
 
 ## Information
-* Get factory's Quality Summary, includes:
-    * Number of Machines
-    * Number of Defect (Pcs)
-    * Yield Rate (%)
+* Get factory's work order achievement information, includes:
+    * Count of Work order
+    * Count of finished work order
+    * Achievement rate of work order
 * Dependent on WISE-PaaS APM (need to create Group first in APM).
 * After creating the Group tree in APM, input the parent node path that you want to query.
 * This API will return child nodes' infomation under the input parent node path.
@@ -14,7 +14,7 @@
 * ### Request
 
   ```
-  fns.FactoryQualitySummary("path", "$from", "$to")
+  fns.ChildNodeWorkOrderAchvRate("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -28,15 +28,16 @@
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
   | Factory | String | Node name of this record | "Taipei" |
-  | Defect | Int | Number of Defect (Pcs) | 10 |
-  | Yield | float | Yield Rate (%) | 99.9 |
+  | WOCount | Int | Count of Work order | 60 |
+  | FinishWOCount | Int | Count of finished work order | 59 |
+  | Achv | float | Achievement rate of work order(%) | 98.333 |
 
   
 * ### Example
-    1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
+    1. Query work order achievement information of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` json 
-        select * from fns.FactoryQualitySummary("Advantech", "$from", "$to")
+        ``` 
+        select * from fns.ChildNodeWorkOrderAchvRate("Advantech", "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -45,10 +46,10 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](/images/3.4.5-FactoryQualitySummary.jpg)
+            ![](/images/3.6.1-ChildNodeWorkOrderAchvRate.jpg)  
 
         - Return Value Example    
-            ```
+            ``` json
             [
                 {
                     "columns": [
@@ -59,19 +60,25 @@
                         }, 
                         {
                             "sqltype": "int", 
-                            "text": "Defect", 
+                            "text": "WOCount", 
+                            "type": "number"
+                        }, 
+                        {
+                            "sqltype": "int", 
+                            "text": "FinishWOCount", 
                             "type": "number"
                         }, 
                         {
                             "sqltype": "float", 
-                            "text": "Yield", 
+                            "text": "Achv", 
                             "type": "number"
                         }
                     ], 
                     "rows": [
                         [
                             "Taipei", 
-                            0, 
+                            4, 
+                            4, 
                             100.0
                         ]
                     ], 

@@ -1,4 +1,4 @@
-# 3.5.8 AvailTrendDaily
+# 3.5.8 OEEDailyA
 
 ## Information
 
@@ -12,7 +12,7 @@
 * ### Request
 
   ``` sh
-  fns.AvailTrendDaily('path', '$from', '$to')
+  fns.OEEDailyA('path', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -32,7 +32,9 @@
 * ### Example
     1. Query Availability of path
         - Query
-        ``` select AvailDaily as metric, Availability, Ts from fns.AvailTrendDaily("$Group/$Factory/$Category", "$from", "$to") ```
+        ``` sql 
+        select AvailDaily as metric, Availability, Ts from fns.OEEDailyA("$Group/$Factory/$Category", "$from", "$to") 
+        ```
         - Return Data Format
             * timeseries
         - Query Time Type
@@ -41,7 +43,7 @@
             * Graph
         - Panel Screenshot
 
-            ![](/images/3.5.8-AvailTrendDaily.png)
+            ![](/images/3.5.8-OEEDailyA.png)
         - Return Value Example
 
             ``` json

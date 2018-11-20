@@ -1,8 +1,8 @@
-# 3.5.5 OEETrendDaily
+# 3.5.7 OEEDailyP
 
 ## Information
 
-* Computes factory oee trend daily information within query time range
+* Computes factory performance trend daily information within query time range
 * Need to specify the Query time range (from $from to $to)
 * Support only path
 
@@ -12,7 +12,7 @@
 * ### Request
 
   ``` sh
-  fns.OEETrendDaily('path', '$from', '$to')
+  fns.OEEDailyP('path', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -25,14 +25,16 @@
 
     | Variable | Data Type | Description | Example |
     | :---: | :---: | :---: | :---: |
-    | OEE | float | OEE of the given Timestamp | 90.1 |
+    | Performance | float | Performance of the given Timestamp | 90.1 |
     | Ts | Datetime | Timestamp of the data | 1539679347445 |
 
 
 * ### Example
-    1. Query OEE of path
+    1. Query Performance of path
         - Query
-        ``` select OEEDaily as metric, OEE, Ts from fns.OEETrendDaily("$Group/$Factory/$Category", "$from", "$to") ```
+        ``` sql
+        select PerformanceDaily as metric, Performance, Ts from fns.OEEDailyP("$Group/$Factory/$Category", "$from", "$to") 
+        ```
         - Return Data Format
             * timeseries
         - Query Time Type
@@ -41,7 +43,7 @@
             * Graph
         - Panel Screenshot
 
-            ![](/images/3.5.5-OEETrendDaily.png)
+            ![](/images/3.5.7-OEEDailyP.png)
         - Return Value Example
 
             ``` json
@@ -49,39 +51,39 @@
                 {
                     "datapoints": [
                     [
-                        97.76457844928272,
+                        123.65349014740552,
                         1540137600000
                     ],
                     [
-                        0.0,
+                        0,
                         1540224000000
                     ],
                     [
-                        88.06010874329225,
+                        106.5293385127306,
                         1540310400000
                     ],
                     [
-                        76.3237768220493,
+                        98.31541989969644,
                         1540396800000
                     ],
                     [
-                        2881.414461959448,
+                        3475.9771357948403,
                         1540483200000
                     ],
                     [
-                        0.0,
+                        0,
                         1540569600000
                     ],
                     [
-                        0.0,
+                        0,
                         1540656000000
                     ],
                     [
-                        0.0,
+                        0,
                         1540779858240
                     ]
                     ],
-                    "target": "OEEDaily"
+                    "target": "PerformanceDaily"
                 }
             ]
             ```

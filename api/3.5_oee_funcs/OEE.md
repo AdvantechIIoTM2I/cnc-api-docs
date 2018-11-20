@@ -1,4 +1,4 @@
-# 3.5.4 FactoryOEE
+# 3.5.4 OEE
 
 ## Information
 
@@ -16,7 +16,7 @@
 * ### Request
 
   ``` sh
-  fns.FactoryOEE('path', '$from', '$to')
+  fns.OEE('path', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -39,7 +39,9 @@
 * ### Example
     1. Query Availability of path
         - Query
-        ``` select * from fns.FactoryOEE("$Group/$Factory/$Category", "$from", "$to") ```
+        ``` sql 
+        select * from fns.OEE("$Group/$Factory/$Category", "$from", "$to") 
+        ```
         - Return Data Format
             * table
         - Query Time Type
@@ -48,41 +50,41 @@
             * Singlestat
         - Panel Screenshot
 
-            ![](/images/3.5.4-FactoryOEE.png)
+            ![](/images/3.5.4-OEE.png)
         - Return Value Example
 
             ``` json
             [
-            {
-                "columns": [
-                    {
-                        "sqltype": "float",
-                        "text": "OEE",
-                        "type": "number"
-                    },
-                    {
-                        "sqltype": "float",
-                        "text": "Availability",
-                        "type": "number"
-                    },
-                    {
-                        "sqltype": "float",
-                        "text": "Performance",
-                        "type": "number"
-                    },
-                    {
-                        "sqltype": "float",
-                        "text": "Quality",
-                        "type": "number"
-                    }
+                {
+                    "columns": [
+                        {
+                            "sqltype": "float",
+                            "text": "OEE",
+                            "type": "number"
+                        },
+                        {
+                            "sqltype": "float",
+                            "text": "Availability",
+                            "type": "number"
+                        },
+                        {
+                            "sqltype": "float",
+                            "text": "Performance",
+                            "type": "number"
+                        },
+                        {
+                            "sqltype": "float",
+                            "text": "Quality",
+                            "type": "number"
+                        }
                     ],
                     "rows": [
-                    [
-                        113.15,
-                        80.69,
-                        140.22999045714718,
-                        100.0
-                    ]
+                        [
+                            113.15,
+                            80.69,
+                            140.22999045714718,
+                            100.0
+                        ]
                     ],
                     "type": "table"
                 }

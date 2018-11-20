@@ -1,10 +1,10 @@
-# 3.4.4 FactoryDowntimeSummary
+# 3.6.4 ChildNodeQualitySummary
 
 ## Information
-* Get factory's Downtime Summary, includes:
+* Get factory's Quality Summary, includes:
     * Number of Machines
-    * Down state occurrence count
-    * DownTime duration (second)
+    * Number of Defect (Pcs)
+    * Yield Rate (%)
 * Dependent on WISE-PaaS APM (need to create Group first in APM).
 * After creating the Group tree in APM, input the parent node path that you want to query.
 * This API will return child nodes' infomation under the input parent node path.
@@ -14,7 +14,7 @@
 * ### Request
 
   ```
-  fns.FactoryDowntimeSummary("path", "$from", "$to")
+  fns.ChildNodeQualitySummary("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -28,16 +28,15 @@
   | Tag Name | Data Type | Description | Example |
   | :--- | :--- | :--- | :--- |
   | Factory | String | Node name of this record | "Taipei" |
-  | Machines | Int | Number of Machines under the "Factory" | 10 |
-  | Occurrence | Int | Down state occurrence count | 10 |
-  | Duration | float | DownTime duration (second) | 200.9 |
+  | Defect | Int | Number of Defect (Pcs) | 10 |
+  | Yield | float | Yield Rate (%) | 99.9 |
 
   
 * ### Example
-    1. Query Downtime Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
+    1. Query Quality Summary of "Advantech" Group's child node (contains 1 child node : "Taipei")
         - Query   
-        ``` 
-        select * from fns.FactoryDowntimeSummary("Advantech", "$from", "$to")
+        ``` json 
+        select * from fns.ChildNodeQualitySummary("Advantech", "$from", "$to")
         ```
         - Return Data Format   
             * table
@@ -46,10 +45,10 @@
         - Panel Type   
             * Datatable Panel
         - Panel Screenshot      
-            ![](/images/3.4.4-FactoryDowntimeSummary.jpg)
+            ![](/images/3.6.4-ChildNodeQualitySummary.jpg)
 
         - Return Value Example    
-            ``` json
+            ```
             [
                 {
                     "columns": [
@@ -60,26 +59,20 @@
                         }, 
                         {
                             "sqltype": "int", 
-                            "text": "Machines", 
-                            "type": "number"
-                        }, 
-                        {
-                            "sqltype": "int", 
-                            "text": "Occurrence", 
+                            "text": "Defect", 
                             "type": "number"
                         }, 
                         {
                             "sqltype": "float", 
-                            "text": "Duration", 
+                            "text": "Yield", 
                             "type": "number"
                         }
                     ], 
                     "rows": [
                         [
                             "Taipei", 
-                            3, 
-                            28, 
-                            2891123.3210000005
+                            0, 
+                            100.0
                         ]
                     ], 
                     "type": "table"

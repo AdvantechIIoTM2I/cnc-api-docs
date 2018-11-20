@@ -1,9 +1,9 @@
-# 3.5.2 FactoryQuality
+# 3.5.3 MPerformance
 
 ## Information
 
-* Computes factory quality information, include
-    * Quality
+* Computes factory performance information, include
+    * Performance
 * Need to specify the Query time range (from $from to $to)
 * Support only path
 
@@ -12,7 +12,7 @@
 * ### Request
 
   ``` sh
-  fns.FactoryQuality('path', '$from', '$to')
+  fns.MPerformance('path', '$from', '$to')
   ```
 
   | Variable | Data Type | Description | Example |
@@ -25,39 +25,41 @@
 
   | Tag Name | Data Type | Description | Example |
   | :---: | :---: | :---: | :---: |
-  | Quality | float | Quality of the given Timestamp | 90.1 |
+  | Performance | String | performance unit is percentage | 90 |
 
 
 * ### Example
-    1. Query Quality of path
+    1. Query Performance of path
         - Query
-        ``` select Quality from fns.FactoryOEE("$Group/$Factory/$Category", "$from", "$to") ```
+        ``` SQL 
+        select Performance from fns.MPerformance("$Group/$Factory/$Category", "$from", "$to") 
+        ```
         - Return Data Format
             * table
         - Query Time Type
             * utc
         - Panel Type
-            * Singlestat
+            * RankingBar
         - Panel Screenshot
 
-            ![](/images/3.5.3-FactoryPerformance.png)
+            ![](/images/3.5.3-MPerformance.png)
         - Return Value Example
 
             ``` json
             [
                 {
                     "columns": [
-                    {
-                        "sqltype": "float",
-                        "text": "Performance",
-                        "type": "number"
-                    }
-                    ],
+                        {
+                            "sqltype": "float", 
+                            "text": "Performance", 
+                            "type": "number"
+                        }
+                    ], 
                     "rows": [
-                    [
-                        140.22999045714718
-                    ]
-                    ],
+                        [
+                            201.97695736387269
+                        ]
+                    ], 
                     "type": "table"
                 }
             ]
