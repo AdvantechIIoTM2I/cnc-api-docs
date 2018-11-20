@@ -1,7 +1,7 @@
 # 3.1.5 MCurrentStatusDuration
 
 ## Information
-* Get factory's connected machine, includes:
+* Get factory's online machine information, includes:
     * Machine ID
     * Latest status
     * Latest status duration
