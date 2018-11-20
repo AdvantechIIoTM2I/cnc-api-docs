@@ -45,7 +45,9 @@
 * ### Example  
     1. Query Availability of one device   
         - Query   
-        ``` select Availability from fns.MAvail('Advantech/Taipei','{MC-31}', "$from", "$to") ```
+        ``` sql
+        select Availability from fns.MAvail('Advantech/Taipei','{MC-31}', "$from", "$to") 
+        ```
         - Return Data Format   
             * table
         - Query Time Type   
@@ -78,7 +80,7 @@
     2. Multiple device's Availability Analysis   
         - Query   
             * Use 4 queries for this panel   
-        ``` 
+        ``` sql
         select 'Run' as metric, RunTime from fns.MAvail("Advantech/Taipei","", "$from", "$to") 
         select 'Idle' as metric, IdleTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")
         select 'Down' as metric, DownTime from fns.MAvail("Advantech/Taipei","", "$from", "$to")

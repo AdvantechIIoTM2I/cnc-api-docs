@@ -21,7 +21,7 @@
     * [3.3.3 MAlarmDurationRank](api/3.3_alarm_funcs/MAlarmDurationRank.md)
     * [3.3.4 MAlarmDaily](api/3.3_alarm_funcs/MAlarmDaily.md)
     * [3.3.5 MAlarmLevelCount](api/3.3_alarm_funcs/MAlarmLevelCount.md)
-    * [3.3.6 MEventList](api/3.3_alarm_funcs/MAlarmLatest.md)
+    * [3.3.6 MAlarmLatest](api/3.3_alarm_funcs/MAlarmLatest.md)
     * [3.3.7 MAlarmLatestByDevice](api/3.3_alarm_funcs/MAlarmLatestByDevice.md)
   * [3.4 Work Order Info APIs](api/3.4_work_order_funcs/README.md)
     * [3.4.1 WorkOrderA](api/3.4_work_order_funcs/WorkOrderA.md)
