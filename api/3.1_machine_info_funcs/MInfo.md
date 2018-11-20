@@ -50,12 +50,9 @@
   - Query
     * Use 2 queries to display Machine information on Machine Temp Panel  
     ``` sql
-    SELECT DevID, DevName, Status, MainPgm as Program, Mode 
-    FROM fns.MInfo( "$Group", "$Machine",  "$to")
-
-    SELECT SpinTmp1 as ServTemp, ServTemp0 as SpinTmp1, ServTemp1 as SpinTmp2, ServTemp2 as SpinTmp3, ServTemp3 as SpinTmp4,ServTemp4 as SpinTmp5 
-    FROM  fns.MInfo( "$Group", "$Machine",  "$to")
-    ```
+    SELECT DevID, DevName, Status, MainPgm as Program, Mode FROM fns.MInfo("$Group", "$Machine", "$to")  
+    SELECT SpinTmp1 as ServTemp, ServTemp0 as SpinTmp1, ServTemp1 as SpinTmp2, ServTemp2 as SpinTmp3, ServTemp3 as SpinTmp4,ServTemp4 as SpinTmp5 FROM fns.MInfo("$Group", "$Machine", "$to")
+    ```    
   - Return Data Format
     * table
   - Query Time Type
