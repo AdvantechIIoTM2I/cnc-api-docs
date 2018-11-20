@@ -1,4 +1,4 @@
-# 3.4.6 FactoryProductionInfo
+# 3.4.8 PBWorkOrderAchvRate
 
 ## Information
 * Get factory's production information, includes:
@@ -14,7 +14,7 @@
 * ### Request
 
   ```
-  fns.FactoryProductionInfo("path", "$from", "$to")
+  fns.PBWorkOrderAchvRate("path", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -40,9 +40,9 @@
         - Query
             - Contains 3 queries for displaying WOCount, FinishWOCount and Achv on Builder Panel
         ``` 
-        select WOCountKey as metric, WOCount from fns.FactoryProductionInfo("Advantech", "$from", "$to")
-        select FinishWOCountKey as metric, FinishWOCount from fns.FactoryProductionInfo("Advantech", "$from", "$to")
-        select AchvKey as metric, Achv from fns.FactoryProductionInfo("Advantech", "$from", "$to")
+        select WOCountKey as metric, WOCount from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")
+        select FinishWOCountKey as metric, FinishWOCount from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")
+        select AchvKey as metric, Achv from fns.PBWorkOrderAchvRate("Advantech", "$from", "$to")
         ```
         - Return Data Format   
             * timeseries
@@ -51,7 +51,7 @@
         - Panel Type   
             * Builder Panel
         - Panel Screenshot      
-            ![](/images/3.4.6-FactoryProductionInfo.jpg)
+            ![](/images/3.4.8-PBWorkOrderAchvRate.jpg)
 
         - Return Value Example    
             ``` json

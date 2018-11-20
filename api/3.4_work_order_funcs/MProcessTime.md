@@ -1,4 +1,4 @@
-# 3.6.3 MProcessTime
+# 3.4.4 MProcessTime
 
 ## Information
 
@@ -45,7 +45,7 @@
         - Panel Type
             * Singlestat
         - Panel Screenshot
-            ![](/images/3.6.3-MProcessTime.png)
+            ![](/images/3.4.4-MProcessTime.png)
 
         - Return Value Example
             ```json

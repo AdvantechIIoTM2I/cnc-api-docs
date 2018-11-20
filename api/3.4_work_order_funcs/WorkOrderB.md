@@ -1,4 +1,4 @@
-# 3.6.5 MWorkOrderInfo
+# 3.4.2 WorkOrderB
 
 ## Information
 
@@ -15,7 +15,7 @@
 * ### Request
 
   ```sql
-  fns.MWorkOrderInfo("path", "DevID", "$from", "$to")
+  fns.WorkOrderB("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -42,7 +42,7 @@
     1. Query work order info information of a device or multiple device within a path
         - Query
         ```sql
-        SELECT * FROM fns.MWorkOrderInfo("$Group/$Factory/$Category","",  "$from", "$to")
+        SELECT * FROM fns.WorkOrderB("$Group/$Factory/$Category","",  "$from", "$to")
         ```
         - Return Data Format
             * table
@@ -51,7 +51,7 @@
         - Panel Type
             * Work Order
         - Panel Screenshot
-            ![](/images/3.6.5-MWorkOrderInfo.png)
+            ![](/images/3.4.2-WorkOrderB.png)
 
         - Return Value Example
             ```json

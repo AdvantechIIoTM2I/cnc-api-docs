@@ -1,4 +1,4 @@
-# 3.6.4 MPowerTime
+# 3.4.5 MPowerTime
 
 ## Information
 
@@ -45,7 +45,7 @@
         - Panel Type
             * Singlestat
         - Panel Screenshot
-            ![](/images/3.6.4-MPowerTime.png)
+            ![](/images/3.4.5-MPowerTime.png)
 
         - Return Value Example
             ```json

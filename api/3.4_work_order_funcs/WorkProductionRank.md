@@ -1,4 +1,4 @@
-# 3.5.9 WorkProductionRank
+# 3.4.7 WorkProductionRank
 
 ## Information
 
@@ -51,7 +51,7 @@
             * Datatable Panel
         - Panel Screenshot
 
-            ![](/images/3.5.9-WorkProductionRank.png)
+            ![](/images/3.4.7-WorkProductionRank.png)
         - Return Value Example
 
             ``` json

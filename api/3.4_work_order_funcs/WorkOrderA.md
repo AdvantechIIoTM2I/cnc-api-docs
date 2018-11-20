@@ -1,4 +1,4 @@
-# 3.6.1 MWorkOrder
+# 3.4.1 WorkOrderA
 
 ## Information
 
@@ -20,7 +20,7 @@
 * ### Request
 
   ```sql
-  fns.MWorkOrder("path", "DevID", "$from", "$to")
+  fns.WorkOrderA("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -52,7 +52,7 @@
     1. Query work order basic information of a device or multiple device within a path
         - Query
         ```sql
-        SELECT * FROM fns.MWorkOrder("$Group/$Factory/$Category", "", "$from" ,"$to")
+        SELECT * FROM fns.WorkOrderA("$Group/$Factory/$Category", "", "$from" ,"$to")
         ```
         - Return Data Format
             * table
@@ -61,7 +61,7 @@
         - Panel Type
             * Work Order
         - Panel Screenshot
-            ![](/images/3.6.1-MWorkOrder.png)
+            ![](/images/3.4.1-WorkOrderA.png)
 
         - Return Value Example
             ```json

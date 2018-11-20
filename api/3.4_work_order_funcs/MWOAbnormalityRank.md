@@ -1,4 +1,4 @@
-# 3.6.6 MWorkAbnormalityRank
+# 3.4.6 MWOAbnormalityRank
 
 ## Information
 
@@ -11,7 +11,7 @@
 * ### Request
 
   ```sql
-  fns.MWorkAbnormalityRank("path", "DevID", "$from", "$to")
+  fns.MWOAbnormalityRank("path", "DevID", "$from", "$to")
   ```
 
   | Variable | Data Type | Description | Example |
@@ -39,7 +39,7 @@
     1. Query Power time of multiple device within a path
         - Query
         ```sql
-        select Desc as metric, Occurrence from fns.MWorkAbnormalityRank("$Group/$Factory/$Category", "", "5", "$from", "$to" )
+        select Desc as metric, Occurrence from fns.MWOAbnormalityRank("$Group/$Factory/$Category", "", "5", "$from", "$to" )
         ```
         - Return Data Format
             * table
@@ -48,7 +48,7 @@
         - Panel Type
             * Ranking Bar
         - Panel Screenshot
-            ![](/images/3.6.6-MWorkAbnormalityRank.png)
+            ![](/images/3.4.6-MWOAbnormalityRank.png)
 
         - Return Value Example
             ```json
