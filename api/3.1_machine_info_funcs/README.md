@@ -11,11 +11,11 @@
   * Cutting / Rapid / Spindle Override   
   
 * The following APIs return the latest record of the selected devices.
-  * [MInfo](api/3.1_machine_info_funcs/MInfo.md)
-  * [MCurrentStatusDuration](api/3.1_machine_info_funcs/MCurrentStatusDuration.md)
-  * [MAlarmCurrent](api/3.1_machine_info_funcs/MAlarmCurrent.md)
+  * [MInfo](MInfo.md)
+  * [MCurrentStatusDuration](MCurrentStatusDuration.md)
+  * [MAlarmCurrent](MAlarmCurrent.md)
 * The following APIs return the RAW data trend within the time range
-  * [MServoTempTrend](api/3.1_machine_info_funcs/MServoTempTrend.md)
-  * [MSpindleTempTrend](api/3.1_machine_info_funcs/MSpindleTempTrend.md)
+  * [MServoTempTrend](MServoTempTrend.md)
+  * [MSpindleTempTrend](MSpindleTempTrend.md)
 * The following API is return the Status Timeline of the selected devices
-  * [SMStatusTimeline](api/3.1_machine_info_funcs/SMStatusTimeline.md)
+  * [SMStatusTimeline](SMStatusTimeline.md)
