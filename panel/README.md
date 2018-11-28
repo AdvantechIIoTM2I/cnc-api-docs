@@ -17,4 +17,4 @@
   - [Timeline List](4.11-TimelineList.md)
   - [Machine information](4.12-MachineInformation.md)
   - [Grouped Bar Chart Panel](4.13-GroupedBarChart.md)
-  - [Radar Chart](panel/4.14-RadarChart.md)
+  - [Radar Chart](4.14-RadarChart.md)
